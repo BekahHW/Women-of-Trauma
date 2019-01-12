@@ -1,0 +1,37 @@
+<%= form_for :user, url: '/users' do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :Password %>
+<%= f.password_field :password %>
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmation %>
+<%= f.label :location %>
+<%= f.text_field :location %>
+<%= f.label :email %>
+<%= f.text_field :email %>
+
+<h1>Disorder</h1>
+<%= f.fields_for :disorder do |disorder_fields| %>
+<%= disorder_fields.label :name %>
+<%= disorder_fields.text_field :name %>
+<%= disorder_fields.label :description %>
+<%= disorder_fields.text_field :description %>
+ <% end %>
+
+ <%= f.submit "Create User" %>
+<% end %>
+
+<!-- <%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
