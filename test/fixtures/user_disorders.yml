@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  narrative: MyText
+  user_id: 1
+  disorder_id: 1
+
+two:
+  narrative: MyText
+  user_id: 1
+  disorder_id: 1

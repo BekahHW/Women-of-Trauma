@@ -1,0 +1,2 @@
+class UserDisorder < ApplicationRecord
+end
