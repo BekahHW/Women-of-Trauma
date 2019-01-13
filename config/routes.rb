@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'users#index'
-
+root to: 'users#index'
   get 'treatments/new'
   get 'treatments/create'
   get 'treatments/update'
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
   get 'disorders/update'
   get 'disorders/show'
   get 'users/new'
+  get 'users/index'
   get 'users/create'
   get 'users/edit'
   get 'users/update'
