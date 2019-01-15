@@ -35,9 +35,9 @@ DATA = {
 }
 
 def main
-  # make_users
+  make_users
   make_disorders
-  make_userdisorders
+  # make_user_disorders
 end
 
 def make_users
@@ -61,15 +61,15 @@ def make_disorders
   end
 end
 
-def make_user_disorders
-  DATA[:user_disorders].each do |user_disorder|
-    new_user_disorder = UserDisorder.new
-    user_disorder.each_with_index do |attribute, i|
-      new_user_disorder.send(DATA[:user_disorder_keys][i] + "=", attribute)
-    end
-    new_user_disorder.users.each {|c| c.save}
-    new_user_disorder.save
-  end
-end
+# def make_user_disorders
+#   DATA[:user_disorders].each do |user_disorder|
+#     new_user_disorder = UserDisorder.new
+#     user_disorder.each_with_index do |attribute, i|
+#       new_user_disorder.send(DATA[:user_disorder_keys][i] + "=", attribute)
+#     end
+#     new_user_disorder.users.each {|c| c.save}
+#     new_user_disorder.save
+#   end
+# end
 
 main
