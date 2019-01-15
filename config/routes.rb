@@ -23,6 +23,7 @@ root to: 'users#index'
   get 'users/update'
   get 'users/show'
   get 'users/destroy'
+  get 'user_disorders/index'
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'

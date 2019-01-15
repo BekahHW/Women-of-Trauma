@@ -1,4 +1,8 @@
 class UserDisordersController < ApplicationController
+  def index
+    @user_disorders = UserDisorder.limit(10)
+  end
+
   def new
   end
 
@@ -13,4 +17,5 @@ class UserDisordersController < ApplicationController
 
   def show
   end
+
 end
