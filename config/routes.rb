@@ -24,7 +24,7 @@ root to: 'users#index'
   # get 'users/show'
   # get 'users/destroy'
 
-  resources :user_disorders
+  # resources :user_disorders
   resources :disorders
   resources :users
   resources :treatments
