@@ -4,6 +4,7 @@ class UserDisordersController < ApplicationController
   end
 
   def new
+    @user_disorder = UserDisorder.new
   end
 
   def create

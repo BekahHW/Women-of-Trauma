@@ -28,6 +28,7 @@ root to: 'users#index'
   resources :disorders
   resources :users
   resources :treatments
+  resources :user_disorders
 
 
 
