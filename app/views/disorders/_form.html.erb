@@ -1,0 +1,20 @@
+<h3>Take Control of Your Narrative</h3>
+<div class='ml-1'>
+<%= form_for(@disorder) do |f| %>
+<h2>Select primary disorder</h2>
+<%= f.collection_check_boxes :disorder_id, Disorder.all, :id, :name %>
+<h3>Or, add a new disorder:</h3>
+<%= f.fields_for :disorders do |disorder| %>
+  <%= disorder.label :name %>
+  <%= disorder.text_field :name %>
+  <% end %>
+
+  <label>Your Story:</label><br>
+  <%= form_for(@user_disorder) do |ff| %>
+  <%= ff.text_area :narrative, size: "80%x30%" %><br>
+</div>
+
+
+
+  <%= f.submit 'Submit' %>
+<% end %>
