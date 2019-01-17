@@ -3,6 +3,11 @@
 
 <h3>Disorder:</h3>
 <%= bootstrap_form_for @disorder do |f| %>
+<%#= f.check_box_tag 'name' %>
+<%#= input id="disorder" name="PTSD" type="checkbox" value="1" %>
+
+
+  <div>
   <%= f.text_field :name %>
   <%= f.text_area :description %>
 
