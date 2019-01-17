@@ -4,8 +4,8 @@
 <h3>Disorder:</h3>
 <%= bootstrap_form_for @disorder do |f| %>
   <%= f.text_field :name %>
-  <br>
-<br>
+  <%= f.text_area :description %>
+
   <label>Your Story:</label><br>
   <%= f.fields_for :user_disorders do |ff| %>
   <%= ff.text_area :narrative, size: "80%x20%" %><br>
