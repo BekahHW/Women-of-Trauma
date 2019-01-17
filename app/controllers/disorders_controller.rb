@@ -1,4 +1,8 @@
 class DisordersController < ApplicationController
+  def index
+    @disorders = Disorder.all
+  end
+
   def new
     @disorder = Disorder.new
 
@@ -6,7 +10,7 @@ class DisordersController < ApplicationController
   end
 
   def create
-    @disorder = UserDisorder.new(disorder_params)
+    @disorder = Disorder.new(disorder_params)
      if @disorder.valid?
        @disorder.save
        redirect disorder_path(@disorder)
