@@ -1,18 +1,16 @@
 class DisordersController < ApplicationController
-  def index
-    @disorders = Disorder.all
-  end
+  # def index
+  #   @disorders = Disorder.limit(3)
+  # end
 
   def new
     @disorder = Disorder.new
-
     @disorder.user_disorders.build
   end
 
   def create
-    @disorder = Disorder.new(disorder_params)
-     if @disorder.valid?
-       @disorder.save
+    @disorder = Disorder.create(disorder_params)
+     if @disorder.save
        redirect disorder_path(@disorder)
      else
        render :new

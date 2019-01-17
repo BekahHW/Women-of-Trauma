@@ -1,6 +1,6 @@
 class UserDisordersController < ApplicationController
   def index
-    @user_disorders = UserDisorder.limit(10)
+    @user_disorders = UserDisorder.limit(3)
   end
 
   def new
@@ -8,9 +8,8 @@ class UserDisordersController < ApplicationController
   end
 
   def create
-    @user_disorder = current_user.UserDisorder.new(user_disorder_params)
-     if @user_disorder.valid?
-       @user_disorder.save
+    @user_disorder = UserDisorder.new(user_disorder_params)
+     if @user_disorder.save
        redirect user_disorder_path(@user_disorder)
      else
        render :new
