@@ -26,7 +26,9 @@ root to: 'pages#index'
 
   # resources :user_disorders
   resources :disorders
-  resources :users
+  resources :users do
+    resources :user_disorders, only: [:index]
+  end
   resources :treatments
   resources :user_disorders
 
