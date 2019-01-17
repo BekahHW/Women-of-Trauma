@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     def index
-      @users = User.limit(10)
+      @users = User.all
     end
 
     def new
@@ -17,18 +17,18 @@ class UsersController < ApplicationController
        end
     end
 
-    def edit
-      @user = User.find(params[:id])
-    end
+    # def edit
+    #   @user = User.find(params[:id])
+    # end
 
-    def update
-      @user = User.find(params[:id])
-      @user.update(params.require(:user))
-      redirect_to user_path(@user)
-    end
+    # def update
+    #   @user = User.find(params[:id])
+    #   @user.update(params.require(:user))
+    #   redirect_to user_path(@user)
+    # end
 
     def show
-      @users = User.all
+      @user = User.find_by(id: params[:id])
     end
 
   def destroy

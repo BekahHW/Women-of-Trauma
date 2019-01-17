@@ -1,8 +1,10 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
-<h1> Our Survivors </h1>
 
-<% @users.each do |user| %>
- <div><%= link_to user.name, "/users/#{user.id}" %> from <%= user.location %></div>
-<% end %>
+<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+<h1> Hi, <% @user.name %>! </h1>
+</body>
