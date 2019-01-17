@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'pages/index'
 devise_for :users, :controllers => {:registrations => "registrations"}
-root to: 'users#index'
+root to: 'pages#index'
   # get 'treatments/new'
   # get 'treatments/create'
   # get 'treatments/update'
