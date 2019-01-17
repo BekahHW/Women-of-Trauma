@@ -8,7 +8,7 @@ class UserDisordersController < ApplicationController
   end
 
   def create
-    @user_disorder = UserDisorder.new(user_disorder_params)
+    @user_disorder = current_user.UserDisorder.new(user_disorder_params)
      if @user_disorder.valid?
        @user_disorder.save
        redirect user_disorder_path(@user_disorder)
