@@ -9,7 +9,8 @@ class UserDisordersController < ApplicationController
 
   def create
     @user_disorder = UserDisorder.new(user_disorder_params)
-     if @user_disorder.save
+     if @user_disorder.valid?
+       @user_disorder.save
        redirect user_disorder_path(@user_disorder)
      else
        render :new
@@ -31,4 +32,8 @@ class UserDisordersController < ApplicationController
     @user_disorder = UserDisorder.find(params[:id])
   end
 
+  private
+    def user_disorder_params
+      params.require(:user_disorder).permit(:narrative)
+    end
 end
