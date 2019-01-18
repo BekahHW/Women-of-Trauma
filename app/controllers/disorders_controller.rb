@@ -29,6 +29,6 @@ class DisordersController < ApplicationController
   end
 
   def disorder_params
-    params.require(:disorder).permit(:name, :description, user_disorders_attributes: [:narrative])
+    params.require(:disorder).permit(:name, :description, :user_disorder_narrative)
   end
 end
