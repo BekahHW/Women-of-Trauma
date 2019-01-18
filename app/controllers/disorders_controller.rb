@@ -1,7 +1,7 @@
 class DisordersController < ApplicationController
-  # def index
-  #   @disorders = Disorder.limit(3)
-  # end
+  def index
+    @disorders = Disorder.limit(3)
+  end
 
   def new
     @disorder = Disorder.new
@@ -9,10 +9,11 @@ class DisordersController < ApplicationController
   end
 
   def create
-    @disorder = Disorder.create(disorder_params)
+    @disorder = Disorder.new(disorder_params)
      if @disorder.save
-       redirect disorder_path(@disorder)
+       redirect_to disorder_path(@disorder)
      else
+
        render :new
      end
   end
@@ -24,6 +25,7 @@ class DisordersController < ApplicationController
   end
 
   def show
+    @disorder = Disorder.find_by(id: params[:id])
   end
 
   def disorder_params

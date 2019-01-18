@@ -7,13 +7,14 @@
 <%#= input id="disorder" name="PTSD" type="checkbox" value="1" %>
 
 
-  <div>
   <%= f.text_field :name %>
   <%= f.text_area :description %>
 
   <label>Your Story:</label><br>
   <%= f.fields_for :user_disorders do |ff| %>
-  <%= ff.text_area :narrative, size: "80%x20%" %><br>
+  <%= ff.text_area :narrative, size: "80%x20%" %>
+  <%= ff.hidden_field :user_id, value: @user.id %>
+<br>
 </div>
 <% end %>
 
