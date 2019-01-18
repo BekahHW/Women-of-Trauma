@@ -1,19 +1,22 @@
-<h3>Take Control of Your Narrative</h3>
 <div class='ml-1'>
 
 <h3>Disorder:</h3>
+<div class="form-group"
 <%= bootstrap_form_for @disorder do |f| %>
-<%#= f.check_box_tag 'name' %>
-<%#= input id="disorder" name="PTSD" type="checkbox" value="1" %>
 
 
-  <%= f.text_field :name %>
+  <%= f.text_field :name, list: "disorders_autocomplete" %>
+    <datalist id="disorders_autocomplete">
+      <%Disorder.all.each do |d| %>
+      <option value="<%= d.name %>">
+        <% end %>
+    </datalist>
+
   <%= f.text_area :description %>
 
-  <label>Your Story:</label><br>
+  <h3>Take Control of Your Story</h3>
   <%= f.fields_for :user_disorders do |ff| %>
   <%= ff.text_area :narrative, size: "80%x20%" %>
-  <%= ff.hidden_field :user_id, value: @user.id %>
 <br>
 </div>
 <% end %>
