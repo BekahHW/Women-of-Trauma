@@ -1,24 +1,20 @@
-<div class='ml-1'>
 
 <h3>Disorder:</h3>
-<div class="form-group"
 <%= bootstrap_form_for @disorder do |f| %>
 
-
-  <%= f.text_field :name, list: "disorders_autocomplete" %>
-    <datalist id="disorders_autocomplete">
-      <%Disorder.all.each do |d| %>
-      <option value="<%= d.name %>">
-        <% end %>
-    </datalist>
-
+<%= f.text_field :name, list: "disorders_autocomplete" %>
+  <datalist id="disorders_autocomplete">
+    <%Disorder.all.each do |d| %>
+    <option value="<%= d.name %>">
+      <% end %>
+  </datalist>
+  
   <%= f.text_area :description %>
 
-  <h3>Take Control of Your Story</h3>
+  <label>Take Control of Your Story</label>
   <%= f.fields_for :user_disorders do |ff| %>
   <%= ff.text_area :narrative, size: "80%x20%" %>
 <br>
-</div>
 <% end %>
 
 

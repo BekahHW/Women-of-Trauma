@@ -9,7 +9,7 @@ class Disorder < ApplicationRecord
 
 # only creating a disorder if it's not already there
   def user_disorder_narrative=(narrative)
-    self.user_disorder - UserDisorder.create(:narrative)
+    self.user_disorder = UserDisorder.create(:narrative)
   end
 
     def user_disorder_narrative

@@ -13,7 +13,6 @@ class DisordersController < ApplicationController
      if @disorder.save
        redirect_to disorder_path(@disorder)
      else
-
        render :new
      end
   end
@@ -26,6 +25,8 @@ class DisordersController < ApplicationController
 
   def show
     @disorder = Disorder.find_by(id: params[:id])
+    # @user_disorder = UserDisorder.disorders(@disorder.id)
+
   end
 
   def disorder_params
