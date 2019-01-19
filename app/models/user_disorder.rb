@@ -3,7 +3,7 @@ class UserDisorder < ApplicationRecord
 	belongs_to :disorder
   belongs_to :user_disorder_treatments
 
-  validates :narrative, presence: true, length: { minimum: 250 }
+  # validates :narrative, presence: true, length: { minimum: 250 }
 
 
 

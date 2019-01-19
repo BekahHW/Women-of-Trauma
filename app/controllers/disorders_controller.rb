@@ -1,3 +1,4 @@
+require 'pry'
 class DisordersController < ApplicationController
   def index
     @disorders = Disorder.limit(3)
@@ -9,7 +10,7 @@ class DisordersController < ApplicationController
   end
 
   def create
-    @disorder = Disorder.new(disorder_params)
+    @disorder = Disorder.create(disorder_params)
      if @disorder.save
        redirect_to disorder_path(@disorder)
      else
@@ -25,11 +26,12 @@ class DisordersController < ApplicationController
 
   def show
     @disorder = Disorder.find_by(id: params[:id])
-    # @user_disorder = UserDisorder.disorders(@disorder.id)
+    @user_disorder = @disorder.user_disorders
 
   end
 
+
   def disorder_params
-    params.require(:disorder).permit(:name, :description, :user_disorder_narrative)
+    params.require(:disorder).permit(:name, :description, user_disorder_attributes: [:user_disorder_ids, :narrative])
   end
 end

@@ -1,6 +1,6 @@
 
 <h3>Disorder:</h3>
-<%= bootstrap_form_for @disorder do |f| %>
+<%= bootstrap_form_for(@disorder) do |f| %>
 
 <%= f.text_field :name, list: "disorders_autocomplete" %>
   <datalist id="disorders_autocomplete">
@@ -8,7 +8,7 @@
     <option value="<%= d.name %>">
       <% end %>
   </datalist>
-  
+
   <%= f.text_area :description %>
 
   <label>Take Control of Your Story</label>
