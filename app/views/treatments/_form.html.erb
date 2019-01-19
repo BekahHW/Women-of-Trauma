@@ -1,0 +1,11 @@
+<h3>Treatments</h3>
+<%= boostrap_form_for(@treatment) do |f| >
+  <div class="row">
+    <div class="col">
+      <f.text_field :med_name class="form-control" placeholder="Medication Name">
+    </div>
+    <div class="col">
+      <f.text_field :med_dosage class="form-control" placeholder="Medication Dosage">
+    </div>
+  </div>
+</form>
