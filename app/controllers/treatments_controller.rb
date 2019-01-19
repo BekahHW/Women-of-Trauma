@@ -10,11 +10,11 @@ class TreatmentsController < ApplicationController
   def create
     @treatment = Treatment.create(treatment_params)
     if @treatment.save
-      redirect_to 'treatments_path(@treatment)'
+      redirect_to treatments_path(@treatment)
     else
       render :new
     end
-  end 
+  end
 
   def update
   end
