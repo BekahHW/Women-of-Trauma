@@ -19,6 +19,8 @@ class DisordersController < ApplicationController
   end
 
   def edit
+    @disorder = Disorder.find_by(id: params[:id])
+
   end
 
   def update
