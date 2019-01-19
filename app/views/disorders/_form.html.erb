@@ -1,7 +1,7 @@
 
 <h3>Disorder:</h3>
 
-<%= form_for [current_user, @disorder], url: disorders_path do |f| %>
+<%= bootstrap_form_for [current_user, @disorder], url: disorders_path do |f| %>
 
 <%= f.text_field :name, list: "disorders_autocomplete" %>
   <datalist id="disorders_autocomplete">

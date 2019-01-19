@@ -1,7 +1,10 @@
 <h1>Disorders#show</h1>
 <p>Find me in app/views/disorders/show.html.erb</p>
 
-<%= @disorder.name %>
-<%= @disorder.description %>
+<h3> Name: <%= @disorder.name %></h3></div>
+<h4> Description: <%= @disorder.description %></h4>
 
-<%= @user_disorder.narrative %>
+<h4>Story</h4> 
+<p><%= @user_disorder.narrative %></p>
+
+<%= link_to "Edit Disorder", edit_disorder_path(@disorder), class: "btn btn-primary" %>
