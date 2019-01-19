@@ -1,6 +1,7 @@
 
 <h3>Disorder:</h3>
-<%= bootstrap_form_for(@disorder) do |f| %>
+
+<%= form_for [current_user, @disorder], url: disorders_path do |f| %>
 
 <%= f.text_field :name, list: "disorders_autocomplete" %>
   <datalist id="disorders_autocomplete">
@@ -12,8 +13,10 @@
   <%= f.text_area :description %>
 
   <label>Take Control of Your Story</label>
-  <%= f.fields_for :user_disorders do |ff| %>
+  <%= f.fields_for :user_disorders, @user_disorder do |ff| %>
   <%= ff.text_area :narrative, size: "80%x20%" %>
+
+
 <br>
 <% end %>
 

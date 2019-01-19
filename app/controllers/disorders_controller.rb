@@ -5,13 +5,16 @@ class DisordersController < ApplicationController
   end
 
   def new
-    @disorder = Disorder.new
-    @disorder.user_disorders.build
+    @disorder = current_user.disorders.build
+    # @disorder = Disorder.new
+    @user_disorder = @disorder.user_disorders.build
   end
 
   def create
-    @disorder = Disorder.create(disorder_params)
+    @disorder = current_user.disorders.build(disorder_params)
+@disorder.user_disorders.last.user_id=current_user.id
      if @disorder.save
+       # binding.pry
        redirect_to disorder_path(@disorder)
      else
        render :new
@@ -28,12 +31,13 @@ class DisordersController < ApplicationController
 
   def show
     @disorder = Disorder.find_by(id: params[:id])
-    @user_disorder = @disorder.user_disorders
+    # binding.pry
+    @user_disorder = @disorder.user_disorders.where(user_id:current_user.id).first
 
   end
 
 
   def disorder_params
-    params.require(:disorder).permit(:name, :description, user_disorder_attributes: [:user_disorder_ids, :narrative])
+    params.require(:disorder).permit(:name, :description, user_disorders_attributes: [:narrative, :user_id])
   end
 end
