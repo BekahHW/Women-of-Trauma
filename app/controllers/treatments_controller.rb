@@ -10,7 +10,7 @@ class TreatmentsController < ApplicationController
   def create
     @treatment = Treatment.create(treatment_params)
     if @treatment.save
-      redirect_to treatments_path(@treatment)
+      redirect_to treatment_path(@treatment)
     else
       render :new
     end
@@ -23,11 +23,12 @@ class TreatmentsController < ApplicationController
   end
 
   def show
+    @treatment = Treatment.find_by(id: params[:id])
   end
 
   private
    def treatment_params
-     params.require(:treatment).permit(:med_name, :med_dosage, :therapies, :comments)
+     params.require(:treatment).permit(:med_name, :med_dosage, :therapy_name, :comments)
    end
 
 end

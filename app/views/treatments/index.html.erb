@@ -1,6 +1,6 @@
 <%= @treatments.each do |treatment| %>
-<%= treatment.med_name %>
-<%= treatment.med_dosage %>
-<%= treatment.therapy_name %>
-<%= treatment.comments %>
+<label>Medication Name: </label><%= treatment.med_name %><br>
+<label>Medication Dosage: </label><%= treatment.med_dosage %><br>
+<label>Therapy Name: </label><%= treatment.therapy_name %><br>
+<label>Dosage: </label><%= treatment.comments %><br>
 <% end %>
