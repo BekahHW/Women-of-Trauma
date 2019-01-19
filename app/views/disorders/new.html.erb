@@ -1,4 +1,6 @@
 <h1>Disorders#new</h1>
 <p>Find me in app/views/disorders/new.html.erb</p>
 
-<%= render 'form' %>
+<%= bootstrap_form_for [current_user, @disorder], url: disorders_path do |f| %>
+<%= render 'form', f: f %>
+<% end %>

@@ -12,7 +12,7 @@ class DisordersController < ApplicationController
 
   def create
     @disorder = current_user.disorders.build(disorder_params)
-@disorder.user_disorders.last.user_id=current_user.id
+    @disorder.user_disorders.last.user_id=current_user.id
      if @disorder.save
        # binding.pry
        redirect_to disorder_path(@disorder)
@@ -22,11 +22,13 @@ class DisordersController < ApplicationController
   end
 
   def edit
-    @disorder = Disorder.find_by(id: params[:id])
-
+    @disorder = Disorder.find(params[:id])
   end
 
   def update
+    @disorder = Disorder.find(params[:id])
+    @disorder.update(params.require(:disorder))
+    redirect_to disorder_path(@disorder)
   end
 
   def show
