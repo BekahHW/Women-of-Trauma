@@ -26,21 +26,18 @@ class DisordersController < ApplicationController
   end
 
   def update
-    binding.pry
-
     @disorder = Disorder.find(params[:id])
-    if @disorder.update(disorder_params)
+    @disorder.update(disorder_params)
     redirect_to disorder_path(@disorder)
   end
 
   def show
     @disorder = Disorder.find(params[:id])
     @user_disorder = @disorder.user_disorders.where(user_id:current_user.id).first
-
   end
 
-
+private
   def disorder_params
-    params.require(:disorder).permit(:name, :description, user_disorders_attributes: [:narrative, :user_id])
+    params.require(:disorder).permit(:name, :description, user_disorders_attributes: [:id, :narrative, :user_id])
   end
 end
