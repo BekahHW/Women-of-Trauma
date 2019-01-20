@@ -26,14 +26,15 @@ class DisordersController < ApplicationController
   end
 
   def update
+    binding.pry
+
     @disorder = Disorder.find(params[:id])
-    @disorder.update(params.require(:disorder))
+    if @disorder.update(disorder_params)
     redirect_to disorder_path(@disorder)
   end
 
   def show
-    @disorder = Disorder.find_by(id: params[:id])
-    # binding.pry
+    @disorder = Disorder.find(params[:id])
     @user_disorder = @disorder.user_disorders.where(user_id:current_user.id).first
 
   end

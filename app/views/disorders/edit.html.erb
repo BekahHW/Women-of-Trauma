@@ -1,5 +1,6 @@
 <h1>Disorders#edit</h1>
 <p>Find me in app/views/disorders/edit.html.erb</p>
-<%= bootstrap_form_for [current_user, @disorder], url: disorder_path(@disorder), method: "put" do |f| %>
+
+<%= bootstrap_form_for [current_user, @disorder], url: disorder_path(@disorder) do |f| %>
 <%= render 'form', f: f %>
 <% end %>

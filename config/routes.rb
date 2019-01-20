@@ -10,7 +10,6 @@ root to: 'pages#index'
   resources :user_disorders
 
 
-  patch '/disorders/edit', to: 'disorders#edit'
 
   # get 'user_disorders/index'
 
