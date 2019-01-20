@@ -33,8 +33,7 @@ gem 'bootstrap_form'
 #Openauth
 gem 'omniauth'
 # Openauth for google
-gem 'omniauth-google-oauth2'
-
+gem 'omniauth-github'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
