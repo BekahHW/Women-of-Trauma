@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  devise :omniauthable, :omniauth_providers => [:github]
+
   has_many  :user_disorders
   has_many  :user_disorder_treatments, through: :user_disorders
   has_many :disorders, through: :user_disorders
