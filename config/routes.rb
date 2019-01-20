@@ -13,11 +13,13 @@ root to: 'pages#index'
     get 'login', to: 'devise/sessions#new'
     get 'signup', to: 'devise/registrations#new'
   end
+  
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations' }, skip: [:sessions]
-     as :user do
-       get 'login' => 'devise/sessions#new', :as => :new_user_session
-       post 'login' => 'devise/sessions#create', :as => :user_session
-       delete 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
-     end  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks", registrations: 'users/registrations' }, skip: [:sessions]
+  #    as :user do
+  #      get 'login' => 'devise/sessions#new', :as => :new_user_session
+  #      post 'login' => 'devise/sessions#create', :as => :user_session
+  #      delete 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
+  #    end  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
