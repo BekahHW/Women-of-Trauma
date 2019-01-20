@@ -17,9 +17,14 @@ class TreatmentsController < ApplicationController
   end
 
   def update
+    @treatment = Treatment.find(params[:id])
+    @treatment.update(treatment_params)
+
+    redirect_to treatment_path(@treatment)
   end
 
   def edit
+    @treatment = Treatment.find(params[:id])
   end
 
   def show
