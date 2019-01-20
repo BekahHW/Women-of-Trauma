@@ -7,6 +7,7 @@
       <%= bootstrap_form_for(resource,
                              :as => resource_name,
                              :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
         <%= f.text_field :name,
       	           placeholder: 'username',
@@ -24,6 +25,9 @@
                              placeholder: 'password confirmation',
                              class: 'form-control' %>
         <%= f.submit 'Sign up', class: 'btn sign-up-button' %>
+
+        <%= link_to "Sign in with Github", user_github_omniauth_authorize_path, class: "btn btn-primary" %>
+
       <% end %>
     </div>
   </div>
