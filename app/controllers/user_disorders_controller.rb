@@ -1,12 +1,8 @@
 class UserDisordersController < ApplicationController
   def index
-   #  if params[:disorder_id]
-   #   @user_disorders = UserDisorder.find(params[:disorder_id]).user_disorder
-   # else
-    @user_disorder = UserDisorder.limit(10)
-  end
-# end
-#
+    @user_disorders = UserDisorder.limit(10)
+end
+
 #   def new
 #     @user_disorder = UserDisorder.new
 #   end
