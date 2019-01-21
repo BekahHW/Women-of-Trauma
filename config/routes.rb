@@ -3,9 +3,11 @@ devise_for :users, :controllers => {:registrations => "registrations", :omniauth
 root to: 'pages#index'
 
   resources :disorders
-  resources :users do
-    resources :user_disorders, only: [:index]
+
+  resources :treatments, only: [:show] do
+    resources :user_disorders, only: [:new, :index]
   end
+
   resources :treatments
   resources :user_disorders
 

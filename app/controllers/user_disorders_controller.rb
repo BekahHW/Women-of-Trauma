@@ -1,7 +1,7 @@
 class UserDisordersController < ApplicationController
-#   def index
-#     @user_disorders = UserDisorder.limit(3)
-#   end
+  def index
+    @user_disorders = UserDisorder.limit(3)
+  end
 #
 #   def new
 #     @user_disorder = UserDisorder.new
@@ -27,9 +27,9 @@ class UserDisordersController < ApplicationController
 #
 #   end
 #
-#   def show
-#     @user_disorder = UserDisorder.find(params[:id])
-#   end
+  def show
+    @user_disorder = UserDisorder.find(params[:id])
+  end
 #
 #   private
 #     def user_disorder_params
