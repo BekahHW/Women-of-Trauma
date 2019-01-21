@@ -4,8 +4,8 @@ root to: 'pages#index'
 
   resources :disorders
 
-  resources :treatments, only: [:show] do
-    resources :user_disorders, only: [:new, :index]
+  resources :disorders, only: [:show] do
+    resources :user_disorders, only: [:index]
   end
 
   resources :treatments

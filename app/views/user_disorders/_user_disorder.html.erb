@@ -1,6 +1,7 @@
 
 <div class="narrative" %>
     <h4>Disorder: <%#= user_disorder.disorder.name %></div>
-    <p><%= truncate(user_disorder.narrative, :length => 150) %></p>
-    <%= link_to "Read more", user_disorder_path(user_disorder.id), class: 'read_more' %>
+    <p><%= @user_disorder.each do |ud| %></p>
+    <%= ud.narrative %>
+    <% end %>
 </div>
