@@ -2,6 +2,6 @@
 <p>Find me in app/views/user_therapists/index.html.erb</p>
 <%= @user_therapists.location.each do |ut| %>
 <ul>
-<li><%= ut.location %> - <%= ut.name %></li>
+<li><%= ut.location.capitalize %> - <%= ut.name %></li>
 </ul>
 <% end %>
