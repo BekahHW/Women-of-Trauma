@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'therapists/edit'
   get 'users/welcome'
 
+  resources :users, only: [:welcome] do
+      resources :therapists, only: [:new, :index]
+  end
+
 devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"}
 root to: 'pages#index'
 
