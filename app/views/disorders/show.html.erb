@@ -8,4 +8,4 @@
 <p><%= @user_disorder.narrative %></p>
 
 <%= link_to "Edit Disorder", edit_disorder_path(@disorder), class: "btn btn-primary" %>
-<li><%= link_to 'Read Stories', disorder_user_disorders_path(@disorder) %></li>
+<%= link_to 'Read Stories', disorder_user_disorders_path(@disorder), class: "btn btn-primary" %></li>
