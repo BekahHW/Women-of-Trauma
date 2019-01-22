@@ -1,13 +1,13 @@
 class UserTherapistsController < ApplicationController
   def new
-    @user_therapist = current_user.user_therapist.new
+    @user_therapist = current_user.user_therapists.new
 
   end
 
   def create
     @user_therapist = current_user.user_therapist.new(user_therapist_params)
     if @user_therapist.save
-      redirect_to user_therapists_path
+      redirect_to user_user_therapists_path
     else
       render :new
     end
