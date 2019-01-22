@@ -4,16 +4,16 @@ class TherapistsController < ApplicationController
   end
 
   def create
-    @therapist = Therapist.build(therapist_params)
+    @therapist = Therapist.new(therapist_params)
     if @therapist.save
-      redirect_to user_therapists_path
+      redirect_to therapists_path
     else
       render :new
     end
   end
 
   def index
-    @treatments = Treatment.all
+    @therapists = Therapist.all
   end
 
   def edit

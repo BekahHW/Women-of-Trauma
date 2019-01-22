@@ -1,2 +1,8 @@
 <h1>Therapists#index</h1>
 <p>Find me in app/views/therapists/index.html.erb</p>
+
+<%= @therapists.each do |t| %>
+<label>Name: </label> <%= t.name %>
+<label>Location: </label> <%= t.location %>
+<label>Phone Number: </label> <%= t.phone_number %>
+<% end %>

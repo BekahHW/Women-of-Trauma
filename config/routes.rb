@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  get 'therapists/new'
-  get 'therapists/index'
-  get 'therapists/edit'
+  # get 'therapists/new'
+  # get 'therapists/index'
+  # get 'therapists/edit'
   get 'users/welcome'
 
+resources :therapists
+
   resources :users, only: [:welcome] do
-      resources :therapists, only: [:new]
+      resources :therapists, only: [:new, :index, :show]
   end
 
 devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"}
