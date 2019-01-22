@@ -1,11 +1,11 @@
 class UserTherapistsController < ApplicationController
   def new
-    @user_therapist = current_user.user_therapists.new
-
+    @user = current_user
+    @user_therapist = @user.user_therapists.build
   end
 
   def create
-    @user_therapist = current_user.user_therapist.new(user_therapist_params)
+    @user_therapist = current_user.user_therapists.new(user_therapist_params)
     if @user_therapist.save
       redirect_to user_user_therapists_path
     else
@@ -20,6 +20,6 @@ class UserTherapistsController < ApplicationController
   private
 
   def user_therapist_params
-    params.require(:therapist).permit(:name, :location, :phone_number, :therapist_id, :user_id)
+    params.require(:user_therapist).permit(:name, :location, :phone_number, :user_id)
   end
  end

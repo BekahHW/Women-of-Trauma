@@ -3,7 +3,7 @@
 <h3>Therapist</h3>
 <div class="container" id="therapist-form">
 
-<%= bootstrap_form_for @user_therapist, url: user_user_therapists_path(@user, @user_therapist) do |f| %>
+<%= bootstrap_form_for @user_therapist, url: user_user_therapists_path(@user) do |f| %>
 
 <%= f.text_field :name, placeholder: "Therapist's Name" %>
 
