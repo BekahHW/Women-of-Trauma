@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  get 'users/show'
 devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"}
 root to: 'pages#index'
 
   resources :disorders
 
   resources :disorders, only: [:show] do
-    resources :user_disorders, only: [:index, :new]
+    resources :user_disorders, only: [:index]
   end
+
 
   resources :treatments
   resources :user_disorders
