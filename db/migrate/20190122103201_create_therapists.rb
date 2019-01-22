@@ -4,6 +4,7 @@ class CreateTherapists < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :location
       t.integer :phone_number
+      t.integer :user_id
 
       t.timestamps
     end
