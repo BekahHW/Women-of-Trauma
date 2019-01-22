@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user_therapists/new'
+  get 'user_therapists/index'
   # get 'therapists/new'
   # get 'therapists/index'
   # get 'therapists/edit'
