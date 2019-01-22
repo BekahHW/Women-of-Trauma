@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:github]
 
-  has_many :therapists
-  has_many :user_therapists, through: :therapists
+  has_many :user_therapists
+  has_many :therapists, through: :therapists
   has_many  :user_disorders
   has_many  :user_disorder_treatments, through: :user_disorders
   has_many :disorders, through: :user_disorders
