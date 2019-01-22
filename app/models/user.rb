@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable
 
   # devise :omniauthable, :omniauth_providers => [:github]
-
+  belongs_to :therapist
   has_many  :user_disorders
   has_many  :user_disorder_treatments, through: :user_disorders
   has_many :disorders, through: :user_disorders
