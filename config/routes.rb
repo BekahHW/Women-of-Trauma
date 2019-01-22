@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 resources :therapists
 
   resources :users, only: [:welcome] do
-      resources :therapists, only: [:new, :index, :show]
+      resources :user_therapists, only: [:new, :index]
   end
 
 # devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"}
