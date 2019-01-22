@@ -17,6 +17,7 @@ class UserTherapistsController < ApplicationController
     @user_therapists = UserTherapist.all
   end
 
+
   private
 
   def user_therapist_params
