@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   get 'therapists/new'
   get 'therapists/index'
   get 'therapists/edit'
-  get 'users/show'
+  get 'users/welcome'
+
 devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"}
 root to: 'pages#index'
 
