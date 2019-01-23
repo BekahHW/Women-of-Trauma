@@ -6,6 +6,10 @@ class Disorder < ApplicationRecord
 
 
   accepts_nested_attributes_for :user_disorders
+  validates :name, presence: true
+  validates :description, presence: true 
+
+
 
 # only creating a disorder if it's not already there
   # def user_disorder_attributes=(narrative)
