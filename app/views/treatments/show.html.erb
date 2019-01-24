@@ -5,4 +5,5 @@
 <label>Therapy Type: </label><%= @treatment.therapy_name %><br>
 <label>Comments: </label><%= @treatment.comments %><br>
 
-<%= link_to "Edit Treatment", edit_treatment_path(@treatment), class: "btn btn-primary" %>
+<div><%= link_to "Edit Treatment", edit_treatment_path(@treatment), class: "btn btn-primary" %>
+<%= link_to "See All Treatments", treatments_path, class: "btn btn-primary" %></div>
