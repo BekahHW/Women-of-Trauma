@@ -1,25 +1,16 @@
-require 'pry'
 class DisordersController < ApplicationController
   def index
     @disorders = Disorder.all
-     # @disorder.user_disorders
   end
 
-
   def new
-    # @disorder = current_user.disorders.build
     @disorder = Disorder.new
     @disorder.user_disorders.build(user_id: current_user)
   end
 
   def create
-    # @disorder = current_user.disorders.build(disorder_params)
     @disorder = Disorder.new(disorder_params)
-    # binding.pry
      if @disorder.save
-       # @disorder.user_disorders.create.user_id=current_user.id
-
-       # binding.pry
        redirect_to disorder_path(@disorder)
      else
        render :new
