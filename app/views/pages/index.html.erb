@@ -5,6 +5,14 @@
 <div class="hero-image">
   <div id="main_stat"><p>In the US, nearly 10% of people suffer from
     Post Traumatic Stress Disorder, with women being more at risk.</p>
-    <div>
+    </div>
+    <br>
+    <div><% if !user_signed_in? %>
+    <%= link_to "Sign In", signup_path, class: "btn btn-primary" %>
+    <% else %>
+    <h3>Please check out our <a href="/users/welcome">welcome page</a></h3>
+    <% end %>
+    </div>
 </div>
+
 </body>
