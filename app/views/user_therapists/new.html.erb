@@ -1,13 +1,3 @@
-<h1>UserTherapists#new</h1>
-<p>Find me in app/views/user_therapists/new.html.erb</p>
-<h3>Therapist</h3>
-<div class="container" id="therapist-form">
+<h1>Add a Therapist You Recommend</h1>
 
-<%= bootstrap_form_for @user_therapist do |f| %>
-<%= f.text_field :name, placeholder: "Therapist's Name" %>
-
-<%= f.text_field :location, placeholder: "Therapist's Location" %>
-
-<%= f.submit "Submit", class: 'form-control' %>
-</div>
-<% end %>
+<%= render "form" %>

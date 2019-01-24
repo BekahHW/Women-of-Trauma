@@ -1,11 +1,3 @@
 <h3>Edit Therapist</h3>
-<div class="container" id="therapist-form">
 
-<%= bootstrap_form_for @user_therapist do |f| %>
-<%= f.text_field :name, placeholder: "Therapist's Name" %>
-
-<%= f.text_field :location, placeholder: "Therapist's Location" %>
-
-<%= f.submit "Submit", class: 'form-control' %>
-</div>
-<% end %>
+<%= render "form" %>
