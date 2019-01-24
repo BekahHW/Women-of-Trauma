@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'user_therapists/new'
-  get 'user_therapists/index'
+  # get 'user_therapists/new'
+  # get 'user_therapists/index'
   # get 'therapists/new'
   # get 'therapists/index'
   # get 'therapists/edit'
@@ -16,7 +16,7 @@ resources :therapists
 root to: 'pages#index'
 
   resources :disorders
-
+  resources :user_therapists
   resources :disorders, only: [:show] do
     resources :user_disorders, only: [:index]
   end
