@@ -13,8 +13,12 @@
   <%= f.text_area :description %>
 
   <label>Take Control of Your Story</label>
-  <%= f.fields_for :user_disorders, @user_disorder do |ff| %>
+  <%= f.fields_for :user_disorders, @disorder.user_disorders do |ff| %>
   <%= ff.text_area :narrative, size: "80%x20%" %>
+
+  <%= ff.hidden_field :disorder_id, value: @disorder %>
+  <%= ff.hidden_field :user_id, value: current_user.id %>
+
 
 
 <br>

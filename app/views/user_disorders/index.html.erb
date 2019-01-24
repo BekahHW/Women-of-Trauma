@@ -1,1 +1,6 @@
-<%= render "user_disorder" %>
+<% @user_disorders.each do |d| %>
+<p><label>Disorder Name:</label> <%= d.disorder.name%><br>
+  <%= d.narrative %>
+</p>
+
+<% end %>

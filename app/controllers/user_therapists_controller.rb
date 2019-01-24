@@ -14,7 +14,7 @@ class UserTherapistsController < ApplicationController
   end
 
   def index
-    @user_therapists = UserTherapist.all
+    @user_therapists = UserTherapist.location
   end
 
 
