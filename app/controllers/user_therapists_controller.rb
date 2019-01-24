@@ -12,6 +12,18 @@ class UserTherapistsController < ApplicationController
     end
   end
 
+    def update
+      @user_therapist = UserTherapist.find(params[:id])
+      @user_therapist.update(user_therapist_params)
+
+      redirect_to user_user_therapist_path(current_user, @user_therapist)
+    end
+
+    def edit
+      @user_therapist = UserTherapist.find(params[:id])
+    end
+
+
   def show
     @user_therapist = UserTherapist.find_by(id: params[:id])
   end
