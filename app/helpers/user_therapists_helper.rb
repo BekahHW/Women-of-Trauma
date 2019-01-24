@@ -1,6 +1,6 @@
 module UserTherapistsHelper
 
-  def capitalize
-   self.location.capitalize
+  def capitalize_fields
+   location.capitalize!
   end
 end
