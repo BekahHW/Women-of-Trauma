@@ -1,6 +1,11 @@
+<h1>Types of Treatment </h1>
+
 <% @treatments.each do |treatment| %>
-<label>Medication Name: </label> <%= treatment.med_name %><br>
+<div><label>Medication Name: </label> <%= treatment.med_name %><br>
 <label>Medication Dosage: </label> <%= treatment.med_dosage %><br>
 <label>Therapy Name: </label> <%= treatment.therapy_name %><br>
 <label>Comments: </label> <%= treatment.comments %><br>
+<hr>
+<br>
+</div>
 <% end %>
