@@ -12,8 +12,6 @@
     <li><%= link_to 'New Treatment', new_treatment_path %></li>
     <li><%= link_to 'View Disorders', disorders_path %></li>
     <li><%= link_to 'View Treatments', treatments_path %></li>
-    <!-- <li><%#= link_to 'Edit Disorder', edit_disorder_path %></li> -->
-    <!-- <li><%#= link_to 'Edit Treatment', edit_treatment_path %></li> -->
   </ul>
 </li>
 
@@ -22,7 +20,7 @@
 </li>
 <li class="mobile-menu">
   <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-</li>    
+</li>
  <li class="mobile-menu"><%= link_to 'Welcome', users_welcome_path %></li>
 
 <li class="mobile-menu"><%= link_to 'New Disorder', new_disorder_path %></li>
