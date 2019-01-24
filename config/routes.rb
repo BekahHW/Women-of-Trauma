@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  # get 'user_therapists/new'
-  # get 'user_therapists/index'
-  # get 'therapists/new'
-  # get 'therapists/index'
-  # get 'therapists/edit'
   get 'users/welcome'
 
 resources :therapists
@@ -12,7 +7,6 @@ resources :therapists
       resources :user_therapists
   end
 
-# devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"}
 root to: 'pages#index'
 
   resources :disorders
@@ -20,7 +14,6 @@ root to: 'pages#index'
   resources :disorders, only: [:show] do
     resources :user_disorders, only: [:index]
   end
-
 
   resources :treatments
   resources :user_disorders
