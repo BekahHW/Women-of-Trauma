@@ -1,5 +1,5 @@
-<%= @user_therapist.name %>
-<%= @user_therapist.location %>
+<h3><%= @user_therapist.name %></h3>
+<h4><%= @user_therapist.location %></h4>
 
-<%= link_to "All therapists", user_user_therapists_path, class: "btn btn-primary" %>
-<%= link_to "Edit therapist", edit_user_user_therapist_path, class: "btn btn-primary" %>
+<div><%= link_to "All therapists", user_user_therapists_path, class: "btn btn-primary" %>
+<%= link_to "Edit therapist", edit_user_user_therapist_path, class: "btn btn-primary" %></div>
