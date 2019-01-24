@@ -24,11 +24,11 @@
         <%= f.password_field :password_confirmation,
                              placeholder: 'password confirmation',
                              class: 'form-control' %>
-        <%= f.submit 'Sign up', class: 'btn sign-up-button' %>
-
+        <%= f.submit 'Sign up', class: 'btn btn-primary' %>
+        <% end %>
+<br>
         <%= link_to "Sign in with Github", user_github_omniauth_authorize_path, class: "btn btn-primary" %>
-
-      <% end %>
+        <h4> Already signed up? <%= link_to "Login", login_path, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
