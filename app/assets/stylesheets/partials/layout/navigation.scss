@@ -19,6 +19,18 @@ nav {
       opacity: 0.8;
     }
   }
+  .dropdown-menu {
+    background-color: #113B51 !important;
+    li {
+      a:hover {
+        background-color: #224f69;
+      }
+    }
+  }
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background-color: #224f69;
 }
 
 body {
