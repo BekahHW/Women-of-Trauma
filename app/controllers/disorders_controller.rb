@@ -19,8 +19,7 @@ class DisordersController < ApplicationController
 
   def edit
     @disorder = Disorder.find(params[:id])
-    if @disorder.user_ids.first == current_user.id
-  else
+    if !@disorder.user_ids.first == current_user.id
     redirect_to users_welcome_path
   end
 end
