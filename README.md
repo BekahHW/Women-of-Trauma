@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Woman of Trauma
+This application is to help women who have experienced trauma to find their voice, community, and healing.
 
-Things you may want to cover:
+# Ruby version
+2.3.3
 
-* Ruby version
+# Deployment instructions
+How to run this on your machine:
 
-* System dependencies
+clone the repo to your machine
+cd into the directory
+run rails s to start the server
+navigate your browser to http://localhost:3000
 
-* Configuration
+#Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/BekahHW/Women-of-Trauma. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#License
+The gem is available as open source under the terms of the MIT License.
