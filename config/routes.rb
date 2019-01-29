@@ -17,6 +17,7 @@ root to: 'pages#index'
 
   resources :treatments
   resources :user_disorders
+  # resources :users
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
