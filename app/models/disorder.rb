@@ -6,6 +6,5 @@ class Disorder < ApplicationRecord
 
   accepts_nested_attributes_for :user_disorders
   validates :name, presence: true
-  validates :description, presence: true
 
  end
