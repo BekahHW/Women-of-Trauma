@@ -2,5 +2,5 @@
 <% @disorders.each do |disorder| %>
 <div>
 <p><%= link_to disorder.name, disorder_user_disorders_path(disorder) %></p>
-<p><%= disorder.description %></p>
+<!-- <p><%#= disorder.description %></p> -->
 <% end %>
