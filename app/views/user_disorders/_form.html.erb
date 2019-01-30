@@ -1,5 +1,7 @@
 <h3>Take Control of Your Narrative</h3>
 <%= form_for(@user_disorder) do |f| %>
+<%= errors_for(@user_disorder) %>
+
 <label>Choose a Type of Trauma</label>
 <%= f.collection_select :disorder_id, Disorder.all, :id, :name, include_blank: false %>
 
