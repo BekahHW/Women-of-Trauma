@@ -35,7 +35,7 @@ end
 
   def show
     @disorder = Disorder.find(params[:id])
-    @user_disorder = @disorder.user_disorders.where(user_id:current_user.id).first
+    @user_disorder = @disorder.user_disorders.where(user_id:current_user.id).all
   end
 
 private

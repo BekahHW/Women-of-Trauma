@@ -1,5 +1,5 @@
 <% @user_disorders.each do |d| %>
-<p><label>Disorder Name:</label> <%= d.disorder.name%><br>
+<p><label>Disorder Name:</label> <%= link_to d.disorder.name, disorder_user_disorders_path(d.disorder) %><br>
   <%= d.narrative %>
 </p>
 
