@@ -4,7 +4,7 @@ class UserTherapistsController < ApplicationController
   end
 
   def create
-    @user_therapist = current_user.user_therapists.new(user_therapist_params)
+    @user_therapist = current_user.user_therapists.find_or_create_by(user_therapist_params)
     if @user_therapist.save
       redirect_to user_user_therapist_path(current_user, @user_therapist)
     else
