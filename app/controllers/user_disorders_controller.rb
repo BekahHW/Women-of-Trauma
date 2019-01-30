@@ -1,8 +1,18 @@
 class UserDisordersController < ApplicationController
   def index
-    @user_disorders = UserDisorder.all
+    # @user_disorders = UserDisorder.all
     # @user_disorder = @disorder.user_disorders
-  end
+    if params[:disorder_id]
+     @disorder = Disorder.find_by(id: params[:disorder_id])
+     if @disorder.nil?
+       redirect_to disorders_path, alert: "Artist not found"
+     else
+       @user_disorders = @disorder.user_disorders
+     end
+   else
+     @user_disorders = UserDisorder.all
+   end
+ end
 
   def new
     # @disorder = Disorder.new
