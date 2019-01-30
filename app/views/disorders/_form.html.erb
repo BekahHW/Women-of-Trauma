@@ -3,14 +3,10 @@
 
 <%= errors_for(@disorder) %>
 
-<%= f.text_field :name, list: "disorders_autocomplete" %>
-  <datalist id="disorders_autocomplete">
-    <%Disorder.all.each do |d| %>
-    <option value="<%= d.name %>">
-      <% end %>
-  </datalist>
-
-  <%= f.text_area :description %>
+<div class="field">
+   <%= f.label :disorder %><br>
+   <%= f.collection_select Disorder.all, :id, :name %>
+ </div>
 
   <label>Take Control of Your Story</label>
   <%= f.fields_for :user_disorders, @disorder.user_disorders do |ff| %>

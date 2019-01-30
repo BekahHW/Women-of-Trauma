@@ -4,12 +4,15 @@ class DisordersController < ApplicationController
   end
 
   def new
-    @disorder = Disorder.new
-    @disorder.user_disorders.build(user_id: current_user)
+    # @disorder = Disorder.new
+    @disorder = Disorder.all
+    # @disorder.user_disorders.build(user_id: current_user)
   end
 
   def create
-    @disorder = Disorder.new(disorder_params)
+    # @disorder = Disorder.new(disorder_params)
+    @disorder = Disorder.all
+
      if @disorder.save
        redirect_to disorder_path(@disorder)
      else
