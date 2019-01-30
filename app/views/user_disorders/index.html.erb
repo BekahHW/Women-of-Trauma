@@ -1,6 +1,7 @@
+<h1><%= @disorder.name %></h1><br>
 <% @user_disorders.each do |d| %>
-<p><label>Disorder Name:</label> <%= link_to d.disorder.name, disorder_user_disorders_path(d.disorder) %><br>
-  <%= d.narrative %>
+<h3> Narrative by: <%= d.user.name %></h3>
+<p>  <%= d.narrative %>
 </p>
 
 <% end %>

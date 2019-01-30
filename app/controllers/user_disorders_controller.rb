@@ -5,7 +5,7 @@ class UserDisordersController < ApplicationController
     if params[:disorder_id]
      @disorder = Disorder.find_by(id: params[:disorder_id])
      if @disorder.nil?
-       redirect_to disorders_path, alert: "Artist not found"
+       redirect_to disorders_path, alert: "Disorder not found"
      else
        @user_disorders = @disorder.user_disorders
      end
@@ -23,7 +23,6 @@ class UserDisordersController < ApplicationController
   def create
     # @disorder = Disorder.new(disorder_params)
     @user_disorder = current_user.user_disorders.new(user_disorder_params)
-
      if @user_disorder.save
        redirect_to user_disorders_path
      else
