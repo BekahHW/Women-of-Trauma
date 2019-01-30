@@ -8,6 +8,8 @@
    <%= f.collection_select Disorder.all, :id, :name %>
  </div>
 
+
+
   <label>Take Control of Your Story</label>
   <%= f.fields_for :user_disorders, @disorder.user_disorders do |ff| %>
   <%= ff.text_area :narrative, size: "80%x20%" %>

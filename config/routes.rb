@@ -12,7 +12,7 @@ root to: 'pages#index'
   resources :disorders
   resources :user_therapists
   resources :disorders, only: [:show] do
-    resources :user_disorders, only: [:index]
+    resources :user_disorders, only: [:index, :new]
   end
 
   resources :treatments

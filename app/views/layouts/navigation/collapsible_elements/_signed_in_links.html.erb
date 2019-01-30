@@ -8,7 +8,7 @@
     <li><%= link_to 'Welcome', users_welcome_path %></li>
     <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
     <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-    <li><%= link_to 'New Disorder', new_disorder_path %></li>
+    <li><%= link_to 'New Disorder', new_user_disorder_path %></li>
     <li><%= link_to 'New Treatment', new_treatment_path %></li>
     <li><%= link_to 'New Therapist', new_user_user_therapist_path(current_user.id) %></li>
     <li><%= link_to 'View Disorders', disorders_path %></li>
