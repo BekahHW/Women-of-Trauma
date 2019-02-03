@@ -1,9 +1,8 @@
 <h1>User Show page</h1>
 
 <% @user.disorders.uniq.each do |d| %>
-<h2><%= d.name %></h2>
-<% d.user_disorders.filter_by_user(@user).each do |dd| %>
-<p><%= dd.narrative %></p>
+  <h2><%= d.name %></h2>
+  <% d.user_disorders.filter_by_user(@user).each do |dd| %>
+    <p><%= dd.narrative %></p>
   <% end %>
-
-    <% end %>
+<% end %>
