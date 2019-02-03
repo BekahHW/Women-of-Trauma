@@ -6,7 +6,9 @@ class UserDisorder < ApplicationRecord
   validates :narrative, presence: true, length: { minimum: 250 }
 
   accepts_nested_attributes_for :disorder
-#
+  scope :filter_by_user, -> (user) { where('user_id = ?', user.id)}
+  # scope :by_post_status, -> (post_status) { where('post_status = ?', post_status) }
+
 # # only creating a disorder if it's not already there
 #   def disorder_attributes=(disorder_attributes)
 #    disorder_attributes.values.each do |disorder_attribute|
