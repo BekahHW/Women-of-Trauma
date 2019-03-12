@@ -12,3 +12,16 @@ disorder_list = [
 disorder_list.each do |name|
   Disorder.create( name: name )
 end
+
+User.create(name: Bekah, location: Ohio)
+User.create(name: Jesse, location: WV)
+User.create(name: Zach, location: PA)
+
+
+
+UserDisorder.create(disorder_id: 1, user_id: 1, narrative: "Sexual Assault. If there are, we all be dead. Well, I'm not saying I'd like to build a summer home here, but the trees are actually quite lovely. And YOU: friendless, brainless, helpless, hopeless! Do you want me to send you back to where you were? Unemployed, in Greenland? No, there is too much. Let me sum up. Buttercup is marry' Humperdinck in a little less than half an hour. So all we have to do is get in, break up the wedding, steal the princess, make our escape... after I kill Count Rugen. You seem a decent fellow... I hate to kill you. Naturally... but I find that Thibault cancels out Capa Ferro. Don't you?")
+
+UserDisorder.create(disorder_id: 2, user_id: 2, narrative: "Domestic Violence. You have a great gift for rhyme. Well, is only way I can be satisfied. If I use my right... over too quickly. I do not mean to pry, but you don't by any chance happen to have six fingers on your right hand? You only think I guessed wrong! That's what's so funny! I switched glasses when your back was turned! Ha ha! You fool! You fell victim to one of the classic blunders - The most famous of which is never get involved in a land war in Asia - but only slightly less well-known is this: Never go against a Sicilian when death is on the line! Ha ha ha ha ha ha ha! Ha ha ha ha ha ha ha! Ha ha ha.")
+
+UserDisorder.create(disorder_id: 3, user_id: 3, narrative: "Child Maltreatment. Fuss, fuss... I think he like to scream at *us*. Don't worry, I won't let it go to my head. It's possible. I kill a lot of people. Oh, the sot has spoken. What happens to her is not truly your concern. I will kill her. And remember this, never forget this: when I found you, you were so slobbering drunk, you couldn't buy Brandy! Hear this now: I will always come for you. Unless the enemy has studied his Agrippa... which I have.
+")
