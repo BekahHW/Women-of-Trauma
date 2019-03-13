@@ -1,16 +1,22 @@
-$(function(){
-  console.log('it works`')
-})
+//$(function(){
+  //console.log('it works`')
+//})
 
 $(document).ready(function() {
-  listenForClick()
+  console.log("?????")
+  //listenForClick()
 });
+
+// $(document).on('turbolinks:load', function(){
+//   console.log("it works")
+// })
 
 // Add listener to a tags on disorders
 function listenForClick(){
-  $('a').on('click', function(event) {
+  $('.disorder_link').on('click', function(event) {
     event.preventDefault()
-    getUserDisorders()
+    console.log("hello")
+    // getUserDisorders()
   })
 }
 

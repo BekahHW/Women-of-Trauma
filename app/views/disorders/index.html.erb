@@ -1,6 +1,6 @@
 <h1>Disorders</h1>
 <% @disorders.each do |disorder| %>
 <div>
-<p class='disorder'><%= link_to disorder.name, disorder_user_disorders_path(disorder) %></p>
+<p class='disorder'><%= link_to disorder.name, disorder_user_disorders_path(disorder),  { :class=>"disorder_link" } %></p>
 <!-- <p><%#= disorder.description %></p> -->
 <% end %>
