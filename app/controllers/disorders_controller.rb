@@ -5,8 +5,6 @@ class DisordersController < ApplicationController
         format.html { render :index}
         format.json { render json: @disorders }
       end
-
-    # render json: @disorders
   end
 
   def new
@@ -42,7 +40,14 @@ end
   def show
     @disorder = Disorder.find(params[:id])
     @user_disorder = @disorder.user_disorders.where(user_id:current_user.id).all
-    render json: @disorder
+
+    respond_to do |format|
+      format.json { render :json => {:disorder => @disorder,
+                                     :user_disorder => @user_disorder}}
+    end
+
+    # render json: @disorder
+    # this needs to render user_disorder with JSON too
   end
 
 private
