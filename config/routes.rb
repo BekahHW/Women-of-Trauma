@@ -9,10 +9,7 @@ resources :therapists
 
 root to: 'pages#index'
 
-respond_to do |format|
-  format.html {render :index, layout: false}
-  format.json {render json: @disorders}
-end
+
 
   resources :disorders
   resources :user_therapists

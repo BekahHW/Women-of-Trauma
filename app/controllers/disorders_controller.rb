@@ -1,6 +1,12 @@
 class DisordersController < ApplicationController
   def index
     @disorders = Disorder.all
+    respond_to do |format|
+        format.html { render :index}
+        format.json { render json: @disorders }
+      end
+
+    # render json: @disorders
   end
 
   def new
@@ -36,6 +42,7 @@ end
   def show
     @disorder = Disorder.find(params[:id])
     @user_disorder = @disorder.user_disorders.where(user_id:current_user.id).all
+    render json: @disorder
   end
 
 private
