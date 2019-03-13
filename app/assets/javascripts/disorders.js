@@ -25,7 +25,7 @@ function getUserDisorders(){
 }
 
 class Disorder {
-  constuctor(obj){
+  constructor(obj){
     this.id = obj.id
     this.name = obj.name
   }
