@@ -22,6 +22,9 @@ function getUserDisorders(){
     dataType: 'json',
   }).done function(data)
   console.log('the data is:', data)
+  let newDisorder = new Disorder(data[0])
+  let newDisorderHTML = newDisorder.postHTML()
+  $('p').text(newDisorderHTML)
 }
 
 class Disorder {
@@ -29,4 +32,9 @@ class Disorder {
     this.id = obj.id
     this.name = obj.name
   }
+}
+
+Disorder.prototype.disorderHTML = function() {
+  return {`
+    <p>this.user_disorder.id.narrative</p>`}
 }
