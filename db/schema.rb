@@ -74,10 +74,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_102351) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "token"
-    t.integer "expires_at"
-    t.boolean "expires"
-    t.string "refresh_token"
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
