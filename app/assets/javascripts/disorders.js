@@ -33,15 +33,15 @@ function listenForClick(){
 
 function getDisorderShow(id){
   let newDisorder = new Disorder(globalDataStore[id - 1])
-  let newDisorderHTML = newDisorder.name
-  $(`#${newDisorder.id}`).after(`<p>${newDisorderHTML} This is gonna have lotsof stuff</p>`)
+  let newDisorderHTML = newDisorder.description
+  $(`#${newDisorder.id}`).after(`<p>${newDisorderHTML}</p>`)
 }
 
 class Disorder {
   constructor(obj){
     this.id = obj.id
     this.name = obj.attributes.name
-    this.description = obj.description
+    this.description = obj.attributes.description
   }
 }
 
