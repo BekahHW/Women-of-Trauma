@@ -1,5 +1,5 @@
 class DisorderSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :description
   has_many :user_disorders
 
   # def user

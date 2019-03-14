@@ -1,46 +1,51 @@
 //$(function(){
   //console.log('it works`')
 //})
+let globalDataStore = null
 window.init = function() {
 $(function() {
-  console.log("?????")
-  // listenForClick()
+  $.ajax( {
+    url: 'http://localhost:3000/disorders',
+    method: 'get',
+    dataType: 'json',
+  }).done(function(data){
+    globalDataStore = data.data
+    // data.data.map(disorder => {
+    //   $('h1').after(`<p class='disorder'><a href="" id='${disorder.id}'>${disorder.attributes.name}</a></p>`)
+    // })
+  })
+
+  listenForClick()
 });
 }
 
 init()
 
 // Add listener to a tags on disorders
-// function listenForClick(){
-//   $('.disorder_link').on('click', function(event) {
-//     event.preventDefault()
-//     console.log("hello")
-//     getUserDisorders()
-//   })
-// }
-//
-//
-// function getUserDisorders(){
-//   $.ajax( {
-//     url: 'http://localhost:3000/disorders',
-//     method: 'get',
-//     dataType: 'json',
-//   }).done(function(data){
-//       console.log(data)
-//   let newDisorder = new Disorder(data[0])
-//   let newDisorderHTML = newDisorder.postHTML()
-//   $('p').text(newDisorderHTML)
-// })
-// }
-//
-// class Disorder {
-//   constructor(obj){
-//     this.id = obj.id
-//     this.name = obj.name
-//   }
-// }
-//
-// Disorder.prototype.disorderHTML = function() {
-//   return (`
-//     <p>${this.name}</p>`)
-// }
+function listenForClick(){
+  $('.disorder_link').on('click', function(event) {
+    event.preventDefault()
+    let id = $(this).attr('id')
+    getDisorderShow(id)
+  })
+}
+
+
+function getDisorderShow(id){
+  let newDisorder = new Disorder(globalDataStore[id - 1])
+  let newDisorderHTML = newDisorder.name
+  $(`#${newDisorder.id}`).after(`<p>${newDisorderHTML} This is gonna have lotsof stuff</p>`)
+}
+
+class Disorder {
+  constructor(obj){
+    this.id = obj.id
+    this.name = obj.attributes.name
+    this.description = obj.description
+  }
+}
+
+Disorder.prototype.disorderHTML = function() {
+  return (`
+    <p>${this.name}</p>`)
+}
