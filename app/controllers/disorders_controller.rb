@@ -42,12 +42,11 @@ end
     @user_disorder = @disorder.user_disorders.where(user_id:current_user.id).all
 
     respond_to do |format|
-      format.json { render :json => {:disorder => @disorder,
-                                     :user_disorder => @user_disorder}}
+      format.html { render :show}
+      format.json { render json: @disorders }
+      # format.json { render :json => {:disorder => @disorder,
+      #                        :user_disorder => @user_disorder}}
     end
-
-    # render json: @disorder
-    # this needs to render user_disorder with JSON too
   end
 
 private
