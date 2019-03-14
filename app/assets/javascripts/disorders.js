@@ -1,12 +1,16 @@
 //$(function(){
   //console.log('it works`')
 //})
-
-$(document).ready(function() {
+window.init = function() {
+$(function() {
   console.log("?????")
   //listenForClick()
 });
+}
 
+function init(){
+  listenForClick
+}
 // $(document).on('turbolinks:load', function(){
 //   console.log("it works")
 // })
@@ -26,11 +30,12 @@ function getUserDisorders(){
     url: 'http://localhost:3000/disorders',
     method: 'get',
     dataType: 'json',
-  }).done function(data)
-  console.log('the data is:', data)
+  }).done(function(data){
+      console.log(data)
   let newDisorder = new Disorder(data[0])
   let newDisorderHTML = newDisorder.postHTML()
   $('p').text(newDisorderHTML)
+})
 }
 
 class Disorder {
@@ -41,6 +46,6 @@ class Disorder {
 }
 
 Disorder.prototype.disorderHTML = function() {
-  return {`
-    <p>this.user_disorder.id.narrative</p>`}
+  return (`
+    <p>${this.name}</p>`)
 }

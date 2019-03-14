@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.3'
+# ruby '2.5.1'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -31,6 +31,7 @@ gem 'bootstrap_form'
 gem 'omniauth'
 # Openauth for google
 gem 'omniauth-github'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -38,7 +39,6 @@ gem 'bootstrap-sass', '~> 3.4.0'
 
 gem 'sassc-rails', '>= 2.0.0'
 
-gem 'jquery-rails'
 
 
 group :development, :test do
