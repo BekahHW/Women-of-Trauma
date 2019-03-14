@@ -4,23 +4,17 @@
 window.init = function() {
 $(function() {
   console.log("?????")
-  //listenForClick()
+  listenForClick()
 });
 }
 
-function init(){
-  listenForClick
-}
-// $(document).on('turbolinks:load', function(){
-//   console.log("it works")
-// })
+init()
 
 // Add listener to a tags on disorders
 function listenForClick(){
   $('.disorder_link').on('click', function(event) {
     event.preventDefault()
-    console.log("hello")
-    // getUserDisorders()
+    getUserDisorders()
   })
 }
 
