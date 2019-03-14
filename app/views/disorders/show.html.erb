@@ -1,11 +1,12 @@
 
 
 <h3><%= @disorder.name %> Stories</h3></div>
+<h4>Description<h4>
+  <p><%= @disorder.description %></p>
 
-<h4>Story</h4>
-<p><% @user_disorder.each do |ud| %></p>
-<%= ud.narrative %>
-<% end %>
+<!-- <h4>Story</h4>
+<p><%##= ud.narrative %>
+<%# end %> -->
 
 <%= link_to "Edit Disorder", edit_disorder_path(@disorder), class: "btn btn-primary" %>
 <%= link_to 'Read Stories', user_disorders_path, class: "btn btn-primary" %></li>
