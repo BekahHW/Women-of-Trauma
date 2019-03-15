@@ -1,4 +1,5 @@
-<h1>Disorders</h1>
+<div class="container">
+  <h1>Disorders</h1>
 <% @disorders.each do |disorder| %>
 <div>
 <!-- <p class='disorder'><%#= link_to disorder.name, disorder_user_disorders_path(disorder),  { :class=>"disorder_link" } %></p> -->
@@ -7,8 +8,9 @@
 <%# Make this path to the show page, and the show page have a spot to show narratives %>
 
 <p class='disorder'>
-  <%= link_to disorder.name, disorder_path(disorder), {  :class => 'disorder_link', :id => disorder.id} %> </p>
+  <%= link_to disorder.name, disorder_path(disorder), {  :class => 'disorder_link', :id => disorder.id} %><p id='description<%= disorder.id %>'</p></p>
 
 
 
 <% end %>
+</div>
