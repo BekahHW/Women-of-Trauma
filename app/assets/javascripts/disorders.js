@@ -10,11 +10,7 @@ $(function() {
     dataType: 'json',
   }).done(function(data){
     globalDataStore = data.data
-    // data.data.map(disorder => {
-    //   $('h1').after(`<p class='disorder'><a href="" id='${disorder.id}'>${disorder.attributes.name}</a></p>`)
-    // })
   })
-
   listenForClick()
 });
 }
@@ -34,7 +30,21 @@ function listenForClick(){
 function getDisorderShow(id){
   let newDisorder = new Disorder(globalDataStore[id - 1])
   let newDisorderHTML = newDisorder.description
-  $(`#description${newDisorder.id}`).text(newDisorderHTML).append('<p><button type="button" class="btn btn-primary">See Stories</button></p>')
+  $(`#description${newDisorder.id}`).text(newDisorderHTML).append('<p><button type="button" class="btn btn-primary" id="seeStories">See Stories</button></p>')
+  listenForStoryClick()
+}
+
+function listenForStoryClick(){
+  $('#seeStories').on('click', function(event) {
+    event.preventDefault()
+    console.log("Stories have been clicked")
+    let id = $(this).attr('id')
+    getStoriesShow(id)
+  })
+}
+
+function getStoriesShow(id){
+  console.log("Stories go here")
 }
 
 class Disorder {
