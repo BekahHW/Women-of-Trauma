@@ -7,6 +7,7 @@ class DisordersController < ApplicationController
       end
   end
 
+
   def new
     # @disorder = Disorder.new
     @disorder = Disorder.all

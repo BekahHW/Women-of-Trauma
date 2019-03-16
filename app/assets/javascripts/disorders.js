@@ -9,7 +9,7 @@ $(function() {
     method: 'get',
     dataType: 'json',
   }).done(function(data){
-    
+    // debugger
     globalDataStore = data.data
   })
   listenForClick()
