@@ -9,7 +9,6 @@ $(function() {
     method: 'get',
     dataType: 'json',
   }).done(function(data){
-    // debugger
     globalDataStore = data.data
   })
   listenForClick()
@@ -31,42 +30,50 @@ function listenForClick(){
 function getDisorderShow(id){
   let newDisorder = new Disorder(globalDataStore[id - 1])
   // debugger
-  let newDisorderHTML = newDisorder.description
+  // let newDisorderHTML = newDisorder.description
+  let newDisorderHTML = newDisorder.disorderHTML()
   $(`#description${newDisorder.id}`).text(newDisorderHTML).append('<p><button type="button" class="btn btn-primary" id="seeStories">See Stories</button></p>')
-  listenForStoryClick()
+  // listenForStoryClick()
 }
 
-function listenForStoryClick(){
-  $('#seeStories').on('click', function(event) {
-    event.preventDefault()
-    console.log("Stories have been clicked")
-    let id = $(this).attr('id')
-    getStoriesShow(id)
-  })
-}
+// function listenForStoryClick(){
+//   $('#seeStories').on('click', function(event) {
+//     event.preventDefault()
+//     console.log("Stories have been clicked")
+//     let id = $(this).attr('id')
+//     getStoriesShow(id)
+//   })
+// }
+//
+// function getStoriesShow(id){
+//   console.log("Stories go here")
+//   // debugger
+//   //
+//   // $(`#description${id}`).text(disorderHTML()).append('<p><button type="button" class="btn btn-primary" id="seeStories">New Story</button></p>')
+// }
 
-function getStoriesShow(id){
-  console.log("Stories go here")
-}
+
 
 class Disorder {
   constructor(obj){
     this.id = obj.id
     this.name = obj.attributes.name
     this.description = obj.attributes.description
-    this.user_disorders = obj.relationships.user_disorders
-
+    this.narrative = obj.attributes.user_disorders
+// obj.attributes.user_disorders[0].narrative
   }
 }
 
 Disorder.prototype.disorderHTML = function() {
-//   let disorderUserDisorders = this.user_disorders.map(user_disorder => {
-//     return (`<p>${user_disorder.narrative}</p>
-// `)
-//   }).join('')
+  let disorderUserDisorders = this.narrative.map(user_disorder => {
+    return (`<p>${user_disorder.narrative}</p>
+`)
+  }).join('')
   return (`
     <div class='disorder'>
     <p>${this.description}</p>
+     <p>${disorderUserDisorders}</p>
+
     </div>
     `)
 }
