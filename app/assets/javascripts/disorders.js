@@ -9,6 +9,7 @@ $(function() {
     method: 'get',
     dataType: 'json',
   }).done(function(data){
+    
     globalDataStore = data.data
   })
   listenForClick()
@@ -29,7 +30,8 @@ function listenForClick(){
 
 function getDisorderShow(id){
   let newDisorder = new Disorder(globalDataStore[id - 1])
-  let newDisorderHTML = newDisorder.description
+  // debugger
+  let newDisorderHTML = newDisorder.disorderHTML()
   $(`#description${newDisorder.id}`).text(newDisorderHTML).append('<p><button type="button" class="btn btn-primary" id="seeStories">See Stories</button></p>')
   listenForStoryClick()
 }
@@ -52,10 +54,20 @@ class Disorder {
     this.id = obj.id
     this.name = obj.attributes.name
     this.description = obj.attributes.description
+    this.user_disorders = obj.relationships.user_disorders
+
   }
 }
 
 Disorder.prototype.disorderHTML = function() {
+  let disorderUserDisorders = this.user_disorders.map(user_disorder => {
+    return (`<p>${user_disorder.narrative}</p>
+`)
+  }).join('')
   return (`
-    <p>${this.name}</p>`)
+    <div class='disorder'>
+    <p>${this.description}</p>
+    <p>${disorderUserDisorders}</p>
+    </div>
+    `)
 }

@@ -31,23 +31,18 @@ class UserDisordersController < ApplicationController
   end
 
   def show
-  #   @user_disorder = UserDisorder.find(params[:id])
-  #   if @user_disorder.nil?
-  #     redirect_to disorder_user_disorders_path(@disorder), alert: "Disorder not found"
-  #   end
-  # else
-  #   @user_disorder = UserDisorder.find(params[:id])
-  #   @user = @user_disorder.user
-  @user_disorder = UserDisorder.find(params[:id])
-  @disorder = @user_disorder.disorders.where(user_id:current_user.id).all
-
-  respond_to do |format|
-    format.json { render :json => {:user_disorder => @user_disorder,
-                                   :disorder => @disorder}}
+    # if params[:disorder_id]
+    #   @disorder = Disorder.find(params[:disorder_id])
+    # @user_disorder = @disorder.user_disorders.find(params[:id])
+    @user_disorder = UserDisorder.find(params[:id])
+    if @user_disorder.nil?
+      redirect_to disorder_user_disorders_path(@disorder), alert: "Disorder not found"
+    end
+  else
+    @user_disorder = UserDisorder.find(params[:id])
+    @user = @user_disorder.user
   end
-
-
-  end
+# end
 
 
   private
