@@ -60,14 +60,13 @@ class Disorder {
 }
 
 Disorder.prototype.disorderHTML = function() {
-  let disorderUserDisorders = this.user_disorders.map(user_disorder => {
-    return (`<p>${user_disorder.narrative}</p>
-`)
-  }).join('')
+//   let disorderUserDisorders = this.user_disorders.map(user_disorder => {
+//     return (`<p>${user_disorder.narrative}</p>
+// `)
+//   }).join('')
   return (`
     <div class='disorder'>
     <p>${this.description}</p>
-    <p>${disorderUserDisorders}</p>
     </div>
     `)
 }
