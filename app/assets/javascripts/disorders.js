@@ -66,7 +66,18 @@ let storyForm = (`
 
 }
 
-
+const handleForm = () => {
+  $(`.storyFormBtn`).click(function() {
+    event.preventDefault()
+    var formData = new FormData();
+    formData.append('user_disorder',  $(this).parent().children('textarea').val())
+    fetch(`http://localhost:3000/user_disorders/new`
+      , {
+    method: 'POST',
+    body: formData}
+  )
+  })
+}
 
 //
 // function getStoriesShow(id){
