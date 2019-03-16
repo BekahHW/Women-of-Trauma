@@ -31,7 +31,7 @@ function listenForClick(){
 function getDisorderShow(id){
   let newDisorder = new Disorder(globalDataStore[id - 1])
   // debugger
-  let newDisorderHTML = newDisorder.disorderHTML()
+  let newDisorderHTML = newDisorder.description
   $(`#description${newDisorder.id}`).text(newDisorderHTML).append('<p><button type="button" class="btn btn-primary" id="seeStories">See Stories</button></p>')
   listenForStoryClick()
 }
