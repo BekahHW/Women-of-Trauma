@@ -32,18 +32,42 @@ function getDisorderShow(id){
   // debugger
   // let newDisorderHTML = newDisorder.description
   let newDisorderHTML = newDisorder.disorderHTML()
-  $(`#description${newDisorder.id}`).text(newDisorderHTML).append('<p><button type="button" class="btn btn-primary" id="seeStories">See Stories</button></p>')
-  // listenForStoryClick()
+  $(`#description${newDisorder.id}`).html(newDisorderHTML).append('<p><button type="button" class="btn btn-primary" id="addStories">Add Story</button></p>')
+  addStoryClick(newDisorder.id)
 }
 
-// function listenForStoryClick(){
-//   $('#seeStories').on('click', function(event) {
-//     event.preventDefault()
-//     console.log("Stories have been clicked")
-//     let id = $(this).attr('id')
-//     getStoriesShow(id)
-//   })
-// }
+function addStoryClick(id){
+  $('#addStories').on('click', function(event) {
+    event.preventDefault()
+    console.log("Stories have been clicked")
+    // let id = $(this).attr('id')
+    addStoryForm(id)
+  })
+}
+
+function addStoryForm(id){
+    console.log("Stories go here")
+let storyForm = (`
+  		<strong>New Story Form</strong>
+  			<form>
+        <div class='form-group'>
+        <label for="narrative${id}">Story</label>
+        <textarea class="form-control" id='narrative${id}' rows="3"></textarea>
+
+          </div>
+          <button type="submit" class="btn btn-primary storyFormBtn">Submit</button>
+
+  			</form>
+  		`)
+
+      $(`#description${id}`).html(storyForm)
+
+      handleForm()
+
+}
+
+
+
 //
 // function getStoriesShow(id){
 //   console.log("Stories go here")
