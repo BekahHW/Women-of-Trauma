@@ -1,10 +1,12 @@
 class DisordersController < ApplicationController
   def index
     @disorders = Disorder.all
+    @user = current_user
     respond_to do |format|
         format.html { render :index}
-        format.json { render json: @disorders, include: 'user_disorder, user, user_disorder.user_id' }
+        format.json { render json: @disorders, include: '@user, user_disorder, user, user_disorder.user_id' }
       end
+  
   end
 
 

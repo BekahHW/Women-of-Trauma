@@ -133,6 +133,7 @@ class Disorder {
     this.description = obj.attributes.description
 
     this.narrative = obj.attributes.user_disorders
+    debugger
 // obj.attributes.user_disorders[0].narrative
   }
 }
