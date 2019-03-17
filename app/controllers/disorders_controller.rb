@@ -3,7 +3,7 @@ class DisordersController < ApplicationController
     @disorders = Disorder.all
     respond_to do |format|
         format.html { render :index}
-        format.json { render json: @disorders }
+        format.json { render json: @disorders, include: 'user_disorder, user, user_disorder.user_id' }
       end
   end
 

@@ -77,6 +77,7 @@ const handleForm = () => {
     event.preventDefault()
 
     textareaVal = $(this).parent('form').children('.form-group').children('textarea').val()
+    // userVal = data.relationships.users.data.id
 
     const formVal = {
         narrative: textareaVal,
@@ -90,7 +91,7 @@ const handleForm = () => {
     formData.append('user_disorder',  JSON.stringify(formVal))
 
     const token = $('meta[name="csrf-token"]').attr('content')
-    fetch(`http://localhost:3000/user_disorders`
+    fetch(`http://localhost:3000/user_disorders/create`
       , {
     method: 'POST',
     credentials: 'include',
@@ -130,6 +131,7 @@ class Disorder {
     this.id = obj.id
     this.name = obj.attributes.name
     this.description = obj.attributes.description
+
     this.narrative = obj.attributes.user_disorders
 // obj.attributes.user_disorders[0].narrative
   }
