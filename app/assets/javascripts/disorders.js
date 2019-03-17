@@ -2,6 +2,7 @@
   //console.log('it works`')
 //})
 let globalDataStore = null
+let userId
 window.init = function() {
 $(function() {
   $.ajax( {
@@ -12,6 +13,11 @@ $(function() {
     globalDataStore = data.data
   })
   listenForClick()
+
+  fetch('http://localhost:3000/users/welcome.json')
+  .then(data => {
+console.log(data)
+    userId = data.json()})
 });
 }
 
@@ -55,7 +61,7 @@ let storyForm = (`
         <textarea class="form-control" id='narrative${id}' rows="3"></textarea>
 
           </div>
-          <button type="submit" class="btn btn-primary storyFormBtn">Submit</button>
+          <button type="submit" disorder_id=${id} class="btn btn-primary storyFormBtn">Submit</button>
 
   			</form>
   		`)
@@ -70,11 +76,18 @@ const handleForm = () => {
   $(`.storyFormBtn`).click(function() {
     event.preventDefault()
 
-    formVal = $(this).parent('form').children('.form-group').children('textarea').val()
+    textareaVal = $(this).parent('form').children('.form-group').children('textarea').val()
+
+    const formVal = {
+        narrative: textareaVal,
+        user_id: '1',
+        disorder_id: $(this).attr('disorder_id')
+
+    }
 
     var formData = new FormData();
     console.log("In post request")
-    formData.append('user_disorder',  formVal)
+    formData.append('user_disorder',  JSON.stringify(formVal))
 
     const token = $('meta[name="csrf-token"]').attr('content')
     fetch(`http://localhost:3000/user_disorders`
@@ -85,7 +98,7 @@ const handleForm = () => {
       // 'X-Requested-With': 'XMLHttpRequest',
       'X-CSRF-Token': token,
       //
-      // 'Content-Type': 'application/json',
+      'Content-Type': 'application/json',
       //         'Accept': 'application/json'
 
   // 'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'
