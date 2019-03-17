@@ -23,11 +23,16 @@ class UserDisordersController < ApplicationController
   def create
     # @disorder = Disorder.new
     @user_disorder = current_user.user_disorders.new(user_disorder_params)
-     if @user_disorder.save
-       redirect_to disorder_user_disorders_path(@user_disorder.disorder)
-     else
-       render :new
-     end
+    @user_disorder.save
+    respond_to do |format|
+        format.html { render :new}
+        format.json { render json: @user_disorders }
+      end
+     # if @user_disorder.save
+     #   redirect_to disorder_user_disorders_path(@user_disorder.disorder)
+     # else
+     #   render :new
+     # end
   end
 
   def show

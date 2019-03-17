@@ -9,7 +9,7 @@ resources :therapists
 
 root to: 'pages#index'
 
-
+match '/user_disorders' => 'user_disorders#create', via: :post
 
   resources :disorders
   resources :user_therapists

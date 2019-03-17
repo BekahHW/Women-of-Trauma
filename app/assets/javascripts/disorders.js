@@ -69,15 +69,38 @@ let storyForm = (`
 const handleForm = () => {
   $(`.storyFormBtn`).click(function() {
     event.preventDefault()
+
+    formVal = $(this).parent('form').children('.form-group').children('textarea').val()
+
     var formData = new FormData();
-    formData.append('user_disorder',  $(this).parent().children('textarea').val())
-    fetch(`http://localhost:3000/user_disorders/new`
+    console.log("In post request")
+    formData.append('user_disorder',  formVal)
+
+    const token = $('meta[name="csrf-token"]').attr('content')
+    fetch(`http://localhost:3000/user_disorders`
       , {
     method: 'POST',
+    credentials: 'include',
+    headers: {
+      // 'X-Requested-With': 'XMLHttpRequest',
+      'X-CSRF-Token': token,
+      //
+      // 'Content-Type': 'application/json',
+      //         'Accept': 'application/json'
+
+  // 'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'
+
+    },
+
     body: formData}
   )
+  .then(response => response.json())
+.catch(error => console.error('Error:', error))
+.then(response => console.log('Success:', JSON.stringify(response)));
   })
 }
+
+
 
 //
 // function getStoriesShow(id){
