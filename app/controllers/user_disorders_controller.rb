@@ -1,12 +1,12 @@
 class UserDisordersController < ApplicationController
-before_action :set_disorder
+# before_action :set_disorder
 
   def index
-    # @user_disorders = UserDisorder.all
-    @user_disorders = @disorder.user_disorder
+    @user_disorders = UserDisorder.all
+    # @user_disorders = @disorder.user_disorder
     respond_to do |format|
-        format.html { render 'index.html', :layout => false}
-        format.json { render 'index.json', :layout => false }
+        format.html { render :index}
+        format.json { render json: @user_disorders}
       end
 
     # @user_disorder = @disorder.user_disorders
@@ -61,9 +61,9 @@ before_action :set_disorder
 
 
   private
-    def set_disorder
-      @disorder = Disorder.find(params[:disorder_id])
-    end
+    # def set_disorder
+    #   @disorder = Disorder.find(params[:disorder_id])
+    # end
 
     def user_disorder_params
       params.require(:user_disorder).permit(:narrative, :user_id, :disorder_id)

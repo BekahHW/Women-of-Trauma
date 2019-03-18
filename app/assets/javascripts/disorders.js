@@ -100,7 +100,7 @@ const handleForm = () => {
     formData.append('user_disorder',  JSON.stringify(formVal))
 
     const token = $('meta[name="csrf-token"]').attr('content')
-    fetch(`http://localhost:3000/user_disorders/new`
+    fetch(`http://localhost:3000/user_disorders`
       , {
     method: 'POST',
     credentials: 'include',
