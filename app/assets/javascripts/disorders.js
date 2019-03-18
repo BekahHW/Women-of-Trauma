@@ -14,9 +14,10 @@ $(function() {
   })
   listenForClick()
 
-  fetch('http://localhost:3000/users/welcome.json')
+  fetch('http://localhost:3000/users/welcome')
   .then(data => {
 console.log(data)
+debugger
     userId = data.json()})
 });
 }
@@ -133,7 +134,6 @@ class Disorder {
     this.description = obj.attributes.description
 
     this.narrative = obj.attributes.user_disorders
-    debugger
 // obj.attributes.user_disorders[0].narrative
   }
 }
