@@ -12,6 +12,9 @@ root to: 'pages#index'
 match '/user_disorders' => 'user_disorders#create', via: :post
 match '/user_disorders' => 'user_disorders#create', via: :get
 
+get 'current_user' => "users#current_user"
+
+
 
   resources :disorders
   resources :user_therapists
