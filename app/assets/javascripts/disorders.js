@@ -82,6 +82,7 @@ let storyForm = (`
 
 }
 
+
 const handleForm = () => {
   $(`.storyFormBtn`).click(function() {
     event.preventDefault()
