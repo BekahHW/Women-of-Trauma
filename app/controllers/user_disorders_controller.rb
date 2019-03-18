@@ -1,17 +1,25 @@
 class UserDisordersController < ApplicationController
+before_action :set_disorder
+
   def index
-    @user_disorders = UserDisorder.all
+    # @user_disorders = UserDisorder.all
+    @user_disorders = @disorder.user_disorder
+    respond_to do |format|
+        format.html { render 'index.html', :layout => false}
+        format.json { render 'index.json', :layout => false }
+      end
+
     # @user_disorder = @disorder.user_disorders
-    if params[:disorder_id]
-     @disorder = Disorder.find_by(id: params[:disorder_id])
-     if @disorder.nil?
-       redirect_to disorders_path, alert: "Disorder not found"
-     else
-       @user_disorders = @disorder.user_disorders
-     end
-   else
-     @user_disorders = UserDisorder.all
-   end
+   #  if params[:disorder_id]
+   #   @disorder = Disorder.find_by(id: params[:disorder_id])
+   #   if @disorder.nil?
+   #     redirect_to disorders_path, alert: "Disorder not found"
+   #   else
+   #     @user_disorders = @disorder.user_disorders
+   #   end
+   # else
+   #   @user_disorders = UserDisorder.all
+   # end
  end
 
   def new
@@ -53,6 +61,10 @@ class UserDisordersController < ApplicationController
 
 
   private
+    def set_disorder
+      @disorder = Disorder.find(params[:disorder_id])
+    end
+
     def user_disorder_params
       params.require(:user_disorder).permit(:narrative, :user_id, :disorder_id)
       # , disorder_attributes: [:narrative])
