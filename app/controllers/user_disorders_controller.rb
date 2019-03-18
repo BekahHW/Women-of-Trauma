@@ -1,7 +1,7 @@
 class UserDisordersController < ApplicationController
   def index
-    # @user_disorders = UserDisorder.all
-    @user_disorder = @disorder.user_disorders
+    @user_disorders = UserDisorder.all
+    # @user_disorder = @disorder.user_disorders
     if params[:disorder_id]
      @disorder = Disorder.find_by(id: params[:disorder_id])
      if @disorder.nil?
