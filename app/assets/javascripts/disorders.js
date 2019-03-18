@@ -78,7 +78,6 @@ let storyForm = (`
   		`)
 
       $(`#description${id}`).html(storyForm)
-
       handleForm()
 
 }
@@ -91,11 +90,11 @@ const handleForm = () => {
 
     const formVal = {
         narrative: textareaVal,
+        user_disorder_id: '1',
         user_id: userId,
         disorder_id: $(this).attr('disorder_id')
 
     }
-
     var formData = new FormData();
     console.log("In post request")
     formData.append('user_disorder',  JSON.stringify(formVal))
@@ -118,9 +117,11 @@ const handleForm = () => {
 
     body: formData}
   )
+
   .then(response => response.json())
 .catch(error => console.error('Error:', error))
 .then(response => console.log('Success:', JSON.stringify(response)));
+
   })
 }
 

@@ -1,7 +1,7 @@
 class UserDisordersController < ApplicationController
   def index
     # @user_disorders = UserDisorder.all
-    # @user_disorder = @disorder.user_disorders
+    @user_disorder = @disorder.user_disorders
     if params[:disorder_id]
      @disorder = Disorder.find_by(id: params[:disorder_id])
      if @disorder.nil?
@@ -24,6 +24,8 @@ class UserDisordersController < ApplicationController
     # @disorder = Disorder.new
     @user_disorder = current_user.user_disorders.new(user_disorder_params)
     @user_disorder.save
+    # binding.pry
+
     respond_to do |format|
         format.html { render :new}
         format.json { render json: @user_disorders }
