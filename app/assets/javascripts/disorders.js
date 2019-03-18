@@ -14,9 +14,20 @@ $(function() {
   })
   listenForClick()
 
-  fetch('http://localhost:3000/users/welcome.json')
-  .then(data => {
-    userId = data.json()})
+
+  $(function() {
+    $.ajax( {
+      url: 'http://localhost:3000/users/welcome.json',
+      method: 'get',
+      dataType: 'json',
+    }).done(function(data){
+      userId = data.data.id
+    })
+})
+  //
+  // fetch('http://localhost:3000/users/welcome.json')
+  // .then(data => {
+  //   userId = data.json()})
 });
 }
 
