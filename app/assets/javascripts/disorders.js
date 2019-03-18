@@ -14,10 +14,8 @@ $(function() {
   })
   listenForClick()
 
-  fetch('http://localhost:3000/users/welcome')
+  fetch('http://localhost:3000/users/welcome.json')
   .then(data => {
-console.log(data)
-debugger
     userId = data.json()})
 });
 }
@@ -78,11 +76,10 @@ const handleForm = () => {
     event.preventDefault()
 
     textareaVal = $(this).parent('form').children('.form-group').children('textarea').val()
-    // userVal = data.relationships.users.data.id
 
     const formVal = {
         narrative: textareaVal,
-        user_id: '1',
+        user_id: userId,
         disorder_id: $(this).attr('disorder_id')
 
     }
@@ -132,7 +129,6 @@ class Disorder {
     this.id = obj.id
     this.name = obj.attributes.name
     this.description = obj.attributes.description
-
     this.narrative = obj.attributes.user_disorders
 // obj.attributes.user_disorders[0].narrative
   }
