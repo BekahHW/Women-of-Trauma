@@ -3,7 +3,7 @@ let therapistDataStore = null
 window.init = function() {
 $(function() {
   $.ajax( {
-    url: 'http://localhost:3000/therapist',
+    url: 'http://localhost:3000/therapists/new',
     method: 'get',
     dataType: 'json',
   }).done(function(data){
@@ -17,26 +17,23 @@ $(function() {
 
 init()
 
-function listenforTherapistClick(){
+function listenForTherapistClick(){
   $('#new_therapist').on('submit', function(event) {
     url = this.action
     console.log(url)
 
     data = {
-      'authenticity_token' : { $("input[name='authenticity_token']").val(),
-      'therapist': {
-        name: $("therapist_name").val(),
-        location: $("therapist_location").val(),
-        phone_number: $("therapist_phone_number").val()
-
+      'authenticity_token' :  $("input[name='authenticity_token']").val(),
+      'new_therapist': {
+        'name': $("therapist_name").val(),
+        'location': $("therapist_location").val(),
+        'phone_number': $("therapist_phone_number").val()
       }
-
       }
-    }
+      console.log(data)
+debugger
+
     event.preventDefault()
-    let id = $(this).attr('id')
-    console.log("You've clicked a therapist")
-    getTherapistForm(id)
 })
 }
 
