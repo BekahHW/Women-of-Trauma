@@ -11,7 +11,9 @@ class TherapistsController < ApplicationController
     @therapist = Therapist.find_or_create_by(therapist_params)
     # @therapist = Therapist.new(therapist_params)
     if @therapist.save
-      render 'therapists', :layout => false
+      # render 'therapists/new', :layout => false
+      render json: @therapist, status: 201
+
     else
       render :new
     end

@@ -21,7 +21,6 @@ function addNewTherapist(){
   $('#new_therapist').on('submit', function(event) {
     url = this.action
     console.log(url)
-
     data = {
       'authenticity_token' :  $("input[name='authenticity_token']").val(),
       'therapist': {
@@ -37,9 +36,12 @@ function addNewTherapist(){
         url: url,
         data: data,
         success: function(response){
-          var $ol = $("div.all_therapists ol")
-          $ol.append(response);
+          let name= response.data.attributes.name
+          let location= response.data.attributes.location
 
+          debugger
+          $("#therapist").append(name, location);
+// And add a button to see all therapists(index)
 
         }
       })
