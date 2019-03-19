@@ -15,6 +15,10 @@ class TherapistsController < ApplicationController
 
   def index
     @therapists = Therapist.all
+    respond_to do |format|
+        format.html { render :index}
+        format.json { render json: @therapists}
+    end
   end
 
   def edit
