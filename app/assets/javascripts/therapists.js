@@ -18,7 +18,15 @@ $(function() {
 init()
 
 function listenforTherapistClick(){
-  $('#therapist_button').on('click', function(event) {
+  $('#new_therapist').on('submit', function(event) {
+    url = this.action
+    console.log(url)
+
+    data = {
+      'authenticity_token' : { authenticity_token[value]
+
+      }
+    }
     event.preventDefault()
     let id = $(this).attr('id')
     console.log("You've clicked a therapist")
