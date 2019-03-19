@@ -26,7 +26,7 @@ function addNewTherapist(){
       'therapist': {
         'name': $("#therapist_name").val(),
         'location': $("#therapist_location").val(),
-        'phone_number': $("#therapist_phone_number").val()
+        // 'phone_number': $("#therapist_phone_number").val()
       }
       }
       console.log(data)
@@ -38,9 +38,14 @@ function addNewTherapist(){
         success: function(response){
           let name= response.data.attributes.name
           let location= response.data.attributes.location
+          // let phone = response.data.attributes.phone_number
 
           debugger
-          $("#therapist").append(name, location);
+            $("#name").append(name);
+            $("#location").append(location);
+            // $("#phone").append(phone);
+
+          // $("#therapist").append("<h1>name</h1>", location, phone);
 // And add a button to see all therapists(index)
 
         }
