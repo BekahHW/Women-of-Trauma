@@ -1,6 +1,10 @@
 class TherapistsController < ApplicationController
   def new
     @therapist = Therapist.new
+    respond_to do |format|
+        format.html { render :new}
+        format.json { render json: @therapist}
+    end
   end
 
   def create
