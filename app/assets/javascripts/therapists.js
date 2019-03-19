@@ -1,5 +1,5 @@
-let globalDataStore = null
-let userId
+let therapistDataStore = null
+let aUserId
 
 window.init = function() {
 $(function() {
@@ -8,19 +8,29 @@ $(function() {
     method: 'get',
     dataType: 'json',
   }).done(function(data){
-    globalDataStore = data.data
+    therapistDataStore = data.data
   })
+
   listenForTherapistClick()
+
   fetch('http://localhost:3000/users/welcome.json')
   .then(data => data.json())
   .then(data => {
-    userId = data.data.id})
+    aUserId = data.data.id})
 });
 }
 
 init()
 
 function listenforTherapistClick(){
-  e.preventDefault()
-  console.log("You've clicked a therapist")
+  $('#therapist_button').on('click', function(event) {
+    event.preventDefault()
+    let id = $(this).attr('id')
+    console.log("You've clicked a therapist")
+    getTherapistForm(id)
+})
+}
+
+function getTherapistForm(id){
+
 }

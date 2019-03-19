@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def welcome
     @user = current_user
-    # respond_to do |format|
-    #     format.html { render :index}
-    #     format.json { render json: @user }
-    #   end
+    respond_to do |format|
+        format.html { render :welcome}
+        format.json { render json: @user }
+      end
   end
 
   def show
