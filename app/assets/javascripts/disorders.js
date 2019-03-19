@@ -78,53 +78,53 @@ let storyForm = (`
   		`)
 
       $(`#description${id}`).html(storyForm)
-      handleForm()
+      // handleForm()
 
 }
 
 
-const handleForm = () => {
-  $(`.storyFormBtn`).click(function() {
-    event.preventDefault()
-
-    textareaVal = $(this).parent('form').children('.form-group').children('textarea').val()
-
-    const formVal = {
-        narrative: textareaVal,
-        user_disorder_id: '1',
-        user_id: userId,
-        disorder_id: $(this).attr('disorder_id')
-
-    }
-    var formData = new FormData();
-    console.log("In post request")
-    formData.append('user_disorder',  JSON.stringify(formVal))
-
-    const token = $('meta[name="csrf-token"]').attr('content')
-    fetch(`http://localhost:3000/user_disorders`
-      , {
-    method: 'POST',
-    credentials: 'include',
-    headers: {
-      // 'X-Requested-With': 'XMLHttpRequest',
-      'X-CSRF-Token': token,
-      //
-      'Content-Type': 'application/json',
-      //         'Accept': 'application/json'
-
-  // 'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'
-
-    },
-
-    body: formData}
-  )
-
-  .then(response => response.json())
-.catch(error => console.error('Error:', error))
-.then(response => console.log('Success:', JSON.stringify(response)));
-
-  })
-}
+// const handleForm = () => {
+//   $(`.storyFormBtn`).click(function() {
+//     event.preventDefault()
+//
+//     textareaVal = $(this).parent('form').children('.form-group').children('textarea').val()
+//
+//     const formVal = {
+//         narrative: textareaVal,
+//         user_disorder_id: '1',
+//         user_id: userId,
+//         disorder_id: $(this).attr('disorder_id')
+//
+//     }
+//     var formData = new FormData();
+//     console.log("In post request")
+//     formData.append('user_disorder',  JSON.stringify(formVal))
+//
+//     const token = $('meta[name="csrf-token"]').attr('content')
+//     fetch(`http://localhost:3000/user_disorders`
+//       , {
+//     method: 'POST',
+//     credentials: 'include',
+//     headers: {
+//       // 'X-Requested-With': 'XMLHttpRequest',
+//       'X-CSRF-Token': token,
+//       //
+//       'Content-Type': 'application/json',
+//       //         'Accept': 'application/json'
+//
+//   // 'X-CSRF-Token': '<%= form_authenticity_token.to_s %>'
+//
+//     },
+//
+//     body: formData}
+//   )
+//
+//   .then(response => response.json())
+// .catch(error => console.error('Error:', error))
+// .then(response => console.log('Success:', JSON.stringify(response)));
+//
+//   })
+// }
 
 
 
