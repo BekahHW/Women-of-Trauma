@@ -1,10 +1,9 @@
 let therapistDataStore = null
-let aUserId
 
 window.init = function() {
 $(function() {
   $.ajax( {
-    url: 'http://localhost:3000/users/welcome',
+    url: 'http://localhost:3000/therapist',
     method: 'get',
     dataType: 'json',
   }).done(function(data){
@@ -13,10 +12,6 @@ $(function() {
 
   listenForTherapistClick()
 
-  fetch('http://localhost:3000/users/welcome.json')
-  .then(data => data.json())
-  .then(data => {
-    aUserId = data.data.id})
 });
 }
 
