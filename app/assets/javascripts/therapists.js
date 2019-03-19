@@ -23,7 +23,13 @@ function listenforTherapistClick(){
     console.log(url)
 
     data = {
-      'authenticity_token' : { authenticity_token[value]
+      'authenticity_token' : { $("input[name='authenticity_token']").val(),
+      'therapist': {
+        name: $("therapist_name").val(),
+        location: $("therapist_location").val(),
+        phone_number: $("therapist_phone_number").val()
+
+      }
 
       }
     }
