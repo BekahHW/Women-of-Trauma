@@ -11,7 +11,7 @@ class TherapistsController < ApplicationController
     @therapist = Therapist.find_or_create_by(therapist_params)
     # @therapist = Therapist.new(therapist_params)
     if @therapist.save
-      redirect_to therapists_path
+      render 'therapists', :layout => false
     else
       render :new
     end
@@ -27,6 +27,17 @@ class TherapistsController < ApplicationController
 
   def edit
   end
+
+  def show
+    @therapist = Therapist.find(params[:id])
+    respond_to do |format|
+      format.html { render :show}
+      format.json { render json: @therapist }
+      # format.json { render :json => {:disorder => @disorder,
+      #                        :user_disorder => @user_disorder}}
+    end
+  end
+
 
   private
 

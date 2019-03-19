@@ -7,8 +7,6 @@ class DisordersController < ApplicationController
         format.html { render :index}
         format.json { render json: @disorders, include: '@user.to_json, user_disorder, user, user_disorder.user_id' }
       end
-
-    
   end
 
 

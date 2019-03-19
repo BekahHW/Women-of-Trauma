@@ -10,33 +10,41 @@ $(function() {
     therapistDataStore = data.data
   })
 
-  listenForTherapistClick()
+  addNewTherapist()
 
 });
 }
 
 init()
 
-function listenForTherapistClick(){
+function addNewTherapist(){
   $('#new_therapist').on('submit', function(event) {
     url = this.action
     console.log(url)
 
     data = {
       'authenticity_token' :  $("input[name='authenticity_token']").val(),
-      'new_therapist': {
-        'name': $("therapist_name").val(),
-        'location': $("therapist_location").val(),
-        'phone_number': $("therapist_phone_number").val()
+      'therapist': {
+        'name': $("#therapist_name").val(),
+        'location': $("#therapist_location").val(),
+        'phone_number': $("#therapist_phone_number").val()
       }
       }
       console.log(data)
-debugger
 
-    event.preventDefault()
-})
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: data,
+        success: function(response){
+          var $ol = $("div.all_therapists ol")
+          $ol.append(response);
+
+
+        }
+      })
+
+event.preventDefault()
+
 }
-
-function getTherapistForm(id){
-
-}
+)}
