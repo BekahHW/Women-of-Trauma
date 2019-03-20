@@ -11,7 +11,7 @@ $(function() {
   })
 
   addNewTherapist()
-
+  clickAllTherapists()
 });
 }
 
@@ -40,7 +40,6 @@ function addNewTherapist(){
           let location= response.data.attributes.location
           // let phone = response.data.attributes.phone_number
 
-          debugger
             $("#name").append(name);
             $("#location").append(location);
             // $("#phone").append(phone);
@@ -55,3 +54,56 @@ event.preventDefault()
 
 }
 )}
+
+function clickAllTherapists(){
+  $('#all_therapists').on('click', function(event) {
+    event.preventDefault()
+    allTherapists()
+}
+)}
+
+function allTherapists(){
+  $(function() {
+    $.ajax( {
+      url: 'http://localhost:3000/therapists',
+      method: 'get',
+      dataType: 'json',
+    }).done(function(data){
+      console.log(data)
+      therapistData = data.data
+
+      therapistData.map(therapist => {
+				const newTherapist = new Therapist(therapist)
+				const newTherapistHtml = newTherapist.therapistHTML()
+				document.getElementById('ajax-therapists').innerHTML += newTherapistHtml
+    })
+  });
+  }
+)}
+
+  class Therapist {
+    constructor(obj){
+      this.id = obj.id
+      this.name = obj.attributes.name
+      this.location = obj.attributes.location
+    }
+  }
+
+  Therapist.prototype.therapistHTML = function() {
+debugger
+// this is only getting the submitted therapist. Need to access all therapists
+    let therapist = this.forEach(therapist => {
+      return (`<p>${therapist.name}</p>
+        <p>${therapist.location}</p>
+  `)
+    }).join('')
+    return
+    debugger
+(`
+      <div class='disorder'>
+      <p>${this.description}</p>
+       <p>${disorderUserDisorders}</p>
+
+      </div>
+      `)
+  }
