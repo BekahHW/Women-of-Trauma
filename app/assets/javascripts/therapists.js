@@ -73,7 +73,8 @@ function allTherapists(){
       therapistData = data.data
 
       therapistData.map(therapist => {
-				const newTherapist = new Therapist(therapist)
+        debugger
+				// const newTherapist = new Therapist(therapist)
 				const newTherapistHtml = newTherapist.therapistHTML()
 				document.getElementById('ajax-therapists').innerHTML += newTherapistHtml
     })
