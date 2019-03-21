@@ -42,6 +42,10 @@ function addNewTherapist(){
 
             $("#name").append(name);
             $("#location").append(location);
+
+            $("#therapist_name").val("")
+            $("#therapist_location").val("")
+
             // $("#phone").append(phone);
 
           // $("#therapist").append("<h1>name</h1>", location, phone);
@@ -72,11 +76,11 @@ function allTherapists(){
       console.log(data)
       therapistData = data.data
 
-      therapistData.map(therapist => {
+      therapistData.forEach(therapist => {
         debugger
 				// const newTherapist = new Therapist(therapist)
 				const newTherapistHtml = newTherapist.therapistHTML()
-				document.getElementById('ajax-therapists').innerHTML += newTherapistHtml
+				document.getElementById('#therapist').innerHTML += newTherapistHtml
     })
   });
   }
