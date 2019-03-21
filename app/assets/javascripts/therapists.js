@@ -77,10 +77,17 @@ function allTherapists(){
       therapistData = data.data
 
       therapistData.forEach(therapist => {
-        debugger
+        let therapist_name = therapist.attributes.name
 				// const newTherapist = new Therapist(therapist)
-				const newTherapistHtml = newTherapist.therapistHTML()
-				document.getElementById('#therapist').innerHTML += newTherapistHtml
+				// const newTherapistHtml = newTherapist.therapistHTML()
+        let all_user_therapists =
+        `
+          <div class='all_therapists'>
+             <p>Name: ${therapist.attributes.name}</p>
+              <p>Location: ${therapist.attributes.location}</p>
+             </div>
+           `
+				document.getElementById('therapist').innerHTML += all_user_therapists
     })
   });
   }
@@ -112,3 +119,16 @@ debugger
       </div>
       `)
   }
+
+  // Disorder.prototype.disorderHTML = function() {
+  //   let disorderUserDisorders = this.narrative.map(user_disorder => {
+  //     return (`<p>${user_disorder.narrative}</p>
+  // `)
+  //   }).join('')
+  //   return (`
+  //     <div class='disorder'>
+  //     <p>${this.description}</p>
+  //      <p>${disorderUserDisorders}</p>
+  //
+  //     </div>
+  //     `)
