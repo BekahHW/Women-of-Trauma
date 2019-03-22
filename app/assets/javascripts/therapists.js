@@ -39,11 +39,7 @@ function addNewTherapist(){
           <h3>${response.data.attributes.name}</h3>
           <p>${response.data.attributes.location}</p>`
 
-          // let name= response.data.attributes.name
-          // let location= response.data.attributes.location
-
             $("#therapist").append(new_therapist);
-            // $("#location").append(location);
 
             $("#therapist_name").val("")
             $("#therapist_location").val("")
