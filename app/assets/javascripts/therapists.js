@@ -91,20 +91,3 @@ function allTherapists(){
       this.location = obj.attributes.location
     }
   }
-
-  Therapist.prototype.therapistHTML = function() {
-    let therapist = this.forEach(therapist => {
-      return (`<p>${therapist.name}</p>
-        <p>${therapist.location}</p>
-  `)
-    }).join('')
-    return
-    debugger
-(`
-      <div class='disorder'>
-      <p>${this.description}</p>
-       <p>${disorderUserDisorders}</p>
-
-      </div>
-      `)
-  }
