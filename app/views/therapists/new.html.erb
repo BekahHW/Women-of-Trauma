@@ -21,7 +21,7 @@
  <%## <%=  f.text_field :phone_number %><br>
 
 
-<%= f.submit "Submit", id: 'new_therapist', class: 'form-control' %>
+<%= f.submit "Submit", data: { disable_with: false }, id: 'new_therapist', class: 'form-control' %>
 </div>
 <% end %>
 <br>
