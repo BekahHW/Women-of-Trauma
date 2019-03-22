@@ -35,11 +35,15 @@ function addNewTherapist(){
         url: url,
         data: data,
         success: function(response){
-          let name= response.data.attributes.name
-          let location= response.data.attributes.location
+          let new_therapist = `
+          <h3>${response.data.attributes.name}</h3>
+          <p>${response.data.attributes.location}</p>`
 
-            $("#name").append(name);
-            $("#location").append(location);
+          // let name= response.data.attributes.name
+          // let location= response.data.attributes.location
+
+            $("#therapist").append(new_therapist);
+            // $("#location").append(location);
 
             $("#therapist_name").val("")
             $("#therapist_location").val("")
