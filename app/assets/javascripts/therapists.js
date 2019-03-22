@@ -83,8 +83,8 @@ function allTherapists(){
         let all_user_therapists =
         `
           <div class='all_therapists'>
-             <p>Name: ${therapist.attributes.name}</p>
-              <p>Location: ${therapist.attributes.location}</p>
+             <h3>Name: ${therapist.attributes.name}</h3>
+              <h4>Location: ${therapist.attributes.location}</h4>
              </div>
            `
 				document.getElementById('therapist').innerHTML += all_user_therapists
