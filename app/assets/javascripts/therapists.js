@@ -32,7 +32,7 @@ function addNewTherapist(){
 
       $.ajax({
         type: "POST",
-        url: url, 
+        url: url,
         data: data,
         success: function(response){
           let new_therapist = `
