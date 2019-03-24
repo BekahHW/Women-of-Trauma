@@ -1,6 +1,5 @@
 let therapistDataStore = null
 
-// window.init = function() {
 $(function() {
   $.ajax( {
     url: 'http://localhost:3000/therapists/new',
@@ -13,9 +12,6 @@ $(function() {
   addNewTherapist()
   clickAllTherapists()
 });
-// }
-//
-// init()
 
 function addNewTherapist(){
   $('#new_therapist').on('submit', function(event) {
@@ -69,7 +65,6 @@ function allTherapists(){
       therapistData = data.data
 
       therapistData.forEach(therapist => {
-        // let therapist_name = therapist.attributes.name
 
         let all_user_therapists =
         `
