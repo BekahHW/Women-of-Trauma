@@ -1,14 +1,5 @@
-let therapistDataStore = null
 
 $(function() {
-  $.ajax( {
-    url: 'http://localhost:3000/therapists/new',
-    method: 'get',
-    dataType: 'json',
-  }).done(function(data){
-    therapistDataStore = data.data
-  })
-
   addNewTherapist()
   clickAllTherapists()
 });
