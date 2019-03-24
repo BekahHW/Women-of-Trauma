@@ -3,7 +3,7 @@
 //})
 let globalDataStore = null
 let userId
-window.init = function() {
+// window.init = function() {
 $(function() {
   $.ajax( {
     url: 'http://localhost:3000/disorders',
@@ -19,9 +19,9 @@ $(function() {
   .then(data => {
     userId = data.data.id})
 });
-}
-
-init()
+// }
+//
+// init()
 
 function listenForClick(){
   $('.disorder_link').on('click', function(event) {
