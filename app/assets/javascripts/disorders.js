@@ -1,6 +1,5 @@
 
 let globalDataStore = null
-// let userId
 
 $(function() {
   $.ajax( {
@@ -11,11 +10,6 @@ $(function() {
     globalDataStore = data.data
   })
   listenForClick()
-  //
-  // fetch('http://localhost:3000/users/welcome.json')
-  // .then(data => data.json())
-  // .then(data => {
-  //   userId = data.data.id})
 });
 
 function listenForClick(){
@@ -37,38 +31,6 @@ function getDisorderShow(id){
   $(`#description${newDisorder.id}`).html(newDisorderHTML)
 }
 
-//   .append('<p><button type="button" class="btn btn-primary" id="addStories">Add Story</button></p>')
-//   addStoryClick(newDisorder.id)
-// }
-//
-// function addStoryClick(id){
-//   $('#addStories').on('click', function(event) {
-//     event.preventDefault()
-//     console.log("Stories have been clicked")
-//     // let id = $(this).attr('id')
-//     addStoryForm(id)
-//   })
-// }
-
-// function addStoryForm(id){
-//     console.log("Stories go here")
-// let storyForm = (`
-//   		<strong>New Story Form</strong>
-//   			<form>
-//         <div class='form-group'>
-//         <label for="narrative${id}">Story</label>
-//         <textarea class="form-control" id='narrative${id}' rows="3"></textarea>
-//
-//           </div>
-//           <button type="submit" disorder_id=${id} class="btn btn-primary storyFormBtn">Submit</button>
-//
-//   			</form>
-//   		`)
-//
-//       $(`#description${id}`).html(storyForm)
-//       // handleForm()
-//
-// }
 
 class Disorder {
   constructor(obj){
