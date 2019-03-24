@@ -1,9 +1,7 @@
-//$(function(){
-  //console.log('it works`')
-//})
+
 let globalDataStore = null
-let userId
-// window.init = function() {
+// let userId
+
 $(function() {
   $.ajax( {
     url: 'http://localhost:3000/disorders',
@@ -13,19 +11,19 @@ $(function() {
     globalDataStore = data.data
   })
   listenForClick()
-
-  fetch('http://localhost:3000/users/welcome.json')
-  .then(data => data.json())
-  .then(data => {
-    userId = data.data.id})
+  //
+  // fetch('http://localhost:3000/users/welcome.json')
+  // .then(data => data.json())
+  // .then(data => {
+  //   userId = data.data.id})
 });
-// }
-//
-// init()
 
 function listenForClick(){
   $('.disorder_link').on('click', function(event) {
+// Prevents reloading and going to the page when clicked
     event.preventDefault()
+
+    // Get the id of the clicked link
     let id = $(this).attr('id')
     getDisorderShow(id)
   })
@@ -36,38 +34,41 @@ function getDisorderShow(id){
   let newDisorder = new Disorder(globalDataStore[id - 1])
 
   let newDisorderHTML = newDisorder.disorderHTML()
-  $(`#description${newDisorder.id}`).html(newDisorderHTML).append('<p><button type="button" class="btn btn-primary" id="addStories">Add Story</button></p>')
-  addStoryClick(newDisorder.id)
+  $(`#description${newDisorder.id}`).html(newDisorderHTML)
 }
 
-function addStoryClick(id){
-  $('#addStories').on('click', function(event) {
-    event.preventDefault()
-    console.log("Stories have been clicked")
-    // let id = $(this).attr('id')
-    addStoryForm(id)
-  })
-}
+//   .append('<p><button type="button" class="btn btn-primary" id="addStories">Add Story</button></p>')
+//   addStoryClick(newDisorder.id)
+// }
+//
+// function addStoryClick(id){
+//   $('#addStories').on('click', function(event) {
+//     event.preventDefault()
+//     console.log("Stories have been clicked")
+//     // let id = $(this).attr('id')
+//     addStoryForm(id)
+//   })
+// }
 
-function addStoryForm(id){
-    console.log("Stories go here")
-let storyForm = (`
-  		<strong>New Story Form</strong>
-  			<form>
-        <div class='form-group'>
-        <label for="narrative${id}">Story</label>
-        <textarea class="form-control" id='narrative${id}' rows="3"></textarea>
-
-          </div>
-          <button type="submit" disorder_id=${id} class="btn btn-primary storyFormBtn">Submit</button>
-
-  			</form>
-  		`)
-
-      $(`#description${id}`).html(storyForm)
-      // handleForm()
-
-}
+// function addStoryForm(id){
+//     console.log("Stories go here")
+// let storyForm = (`
+//   		<strong>New Story Form</strong>
+//   			<form>
+//         <div class='form-group'>
+//         <label for="narrative${id}">Story</label>
+//         <textarea class="form-control" id='narrative${id}' rows="3"></textarea>
+//
+//           </div>
+//           <button type="submit" disorder_id=${id} class="btn btn-primary storyFormBtn">Submit</button>
+//
+//   			</form>
+//   		`)
+//
+//       $(`#description${id}`).html(storyForm)
+//       // handleForm()
+//
+// }
 
 class Disorder {
   constructor(obj){
@@ -85,7 +86,7 @@ Disorder.prototype.disorderHTML = function() {
   }).join('')
   return (`
     <div class='disorder'>
-    <p>${this.description}</p>
+    <h4>${this.description}</h4>
      <p>${disorderUserDisorders}</p>
 
     </div>
