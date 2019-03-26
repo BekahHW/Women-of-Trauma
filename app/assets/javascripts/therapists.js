@@ -1,3 +1,4 @@
+// let therapistData = null
 
 $(function() {
   addNewTherapist()
@@ -44,36 +45,62 @@ function clickAllTherapists(){
     allTherapists()
 }
 )}
-
-function allTherapists(){
+//
+function allTherapists(id){
   $(function() {
     $.ajax( {
       url: 'http://localhost:3000/therapists',
       method: 'get',
       dataType: 'json',
     }).done(function(data){
-      console.log(data)
+      // console.log(data)
       therapistData = data.data
 
-      therapistData.forEach(therapist => {
 
-        let all_user_therapists =
-        `
-          <div class='all_therapists'>
-             <h3> ${therapist.attributes.name}</h3>
-              <p> ${therapist.attributes.location}</p>
-             </div>
-           `
-				document.getElementById('therapist').innerHTML += all_user_therapists
+
+therapistData.map(therapist => {
+  const newTherapist = new Therapist(therapist)
+  // const newTherapistHtml =
+   newTherapist.therapistHTML()
+  // document.getElementById('ajax-posts').innerHTML += newTherapistHtml
+// })
+// })
+// })
+//
+//
+//
+//       // let newTherapist = new Therapist(therapistData[id])
+//       // let newTherapistHTML =  newTherapist.therapistHTML()
+//       // forEach(therapist => {
+//       //
+//       //   let all_user_therapists =
+//       //   `
+//       //     <div class='all_therapists'>
+//       //        <h3> ${therapist.attributes.name}</h3>
+//       //         <p> ${therapist.attributes.location}</p>
+//       //        </div>
+//       //      `
+// 			// 	document.getElementById('therapist').innerHTML += all_user_therapists
     })
   });
   }
 )}
+//
+  function Therapist (id, name, location) {
+      this.id = id
+      this.name = id.attributes.name
+      this.location = id.attributes.location
+  }
 
-  class Therapist {
-    constructor(obj){
-      this.id = obj.id
-      this.name = obj.attributes.name
-      this.location = obj.attributes.location
-    }
+
+
+  Therapist.prototype.therapistHTML = function() {
+let all_user_therapists =
+  `
+    <div class='all_therapists'>
+       <h3> ${this.name}</h3>
+        <p> ${this.location}</p>
+       </div>
+     `
+	document.getElementById('therapist').innerHTML += all_user_therapists
   }
