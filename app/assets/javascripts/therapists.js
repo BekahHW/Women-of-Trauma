@@ -1,4 +1,3 @@
-// let therapistData = null
 
 $(function() {
   addNewTherapist()
@@ -7,8 +6,8 @@ $(function() {
 
 function addNewTherapist(){
   $('#new_therapist').on('submit', function(event) {
+    // url looks at the action on the form
     url = this.action
-    console.log(url)
     data = {
       'authenticity_token' :  $("input[name='authenticity_token']").val(),
       'therapist': {
@@ -16,7 +15,6 @@ function addNewTherapist(){
         'location': $("#therapist_location").val(),
       }
       }
-      console.log(data)
 
       $.ajax({
         type: "POST",
@@ -28,12 +26,12 @@ function addNewTherapist(){
           <p>${response.data.attributes.location}</p>`
 
             $("#therapist").append(new_therapist);
-
+            // Clear the value of form
             $("#therapist_name").val("")
             $("#therapist_location").val("")
         }
       })
-
+// Prevents from default behavior, which would take you to new page
 event.preventDefault()
 
 }
@@ -45,42 +43,22 @@ function clickAllTherapists(){
     allTherapists()
 }
 )}
-//
-function allTherapists(id){
+
+function allTherapists(){
   $(function() {
     $.ajax( {
       url: 'http://localhost:3000/therapists',
       method: 'get',
       dataType: 'json',
     }).done(function(data){
-      // console.log(data)
       therapistData = data.data
 
+      therapistData.map(therapist => {
+        // call new Therapist
+        const newTherapist = new Therapist(therapist)
 
-
-therapistData.map(therapist => {
-  const newTherapist = new Therapist(therapist)
-  // const newTherapistHtml =
-   newTherapist.therapistHTML()
-  // document.getElementById('ajax-posts').innerHTML += newTherapistHtml
-// })
-// })
-// })
-//
-//
-//
-//       // let newTherapist = new Therapist(therapistData[id])
-//       // let newTherapistHTML =  newTherapist.therapistHTML()
-//       // forEach(therapist => {
-//       //
-//       //   let all_user_therapists =
-//       //   `
-//       //     <div class='all_therapists'>
-//       //        <h3> ${therapist.attributes.name}</h3>
-//       //         <p> ${therapist.attributes.location}</p>
-//       //        </div>
-//       //      `
-// 			// 	document.getElementById('therapist').innerHTML += all_user_therapists
+        // call prototype method on newTherpist to add content for each therapist on index list
+         newTherapist.therapistHTML()
     })
   });
   }
