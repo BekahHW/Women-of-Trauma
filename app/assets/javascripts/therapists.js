@@ -2,6 +2,7 @@
 $(function() {
   addNewTherapist()
   clickAllTherapists()
+  clickSortTherapists()
 });
 
 function addNewTherapist(){
@@ -63,6 +64,51 @@ function allTherapists(){
   });
   }
 )}
+
+function clickSortTherapists(){
+  $('#sorted_therapists').on('click', function(event) {
+    event.preventDefault()
+
+    sortTherapists()
+}
+)}
+
+function sortTherapists(){
+  $(function() {
+    $.ajax( {
+      url: 'http://localhost:3000/therapists',
+      method: 'get',
+      dataType: 'json',
+    }).done(function(data){
+      therapistData = data.data.sort(function(a, b)
+
+      {
+      
+  var nameA = a.attributes.name.toUpperCase(); // ignore upper and lowercase
+  var nameB = b.attributes.name.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+});
+
+      therapistData.map(therapist => {
+        // call new Therapist
+        const newTherapist = new Therapist(therapist)
+
+        // call prototype method on newTherpist to add content for each therapist on index list
+         newTherapist.therapistHTML()
+    })
+  });
+})
+}
+
+// }
 //
   function Therapist (id, name, location) {
       this.id = id
